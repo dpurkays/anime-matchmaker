@@ -11,4 +11,13 @@
     &__text {
 
     }
+
+    &__icon {
+        height: 32px;
+        fill: $highlight-color;
+
+        &:hover{
+            fill: $accent-color;
+        }
+    }
 }
