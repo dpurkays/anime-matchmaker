@@ -15,9 +15,15 @@ body {
     font-weight: 400;
     color: $primary-text;
     background-color: $primary-bg;
+    
 
     @include tablet {
         font-size: 1.25rem;
         line-height: 1.625rem;
+    }
+
+    @include desktop{
+        width: calc(100% - 8rem);
+        margin: 0 auto;
     }
 }

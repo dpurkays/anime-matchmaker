@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import img1 from "../../assets/images/hero-1.webp";
-import img2 from "../../assets/images/hero-2.webp";
-import img3 from "../../assets/images/hero-3.webp";
-import img4 from "../../assets/images/hero-4.webp";
-import img5 from "../../assets/images/hero-5.webp";
+import img1 from "../../assets/images/hero-1.jpg";
+import img2 from "../../assets/images/hero-2.jpg";
+import img3 from "../../assets/images/hero-3.jpg";
+import img4 from "../../assets/images/hero-4.jpg";
+import img5 from "../../assets/images/hero-5.jpg";
 import "./HeroBanner.scss";
 
 const images = [img1, img2, img3, img4, img5];
@@ -26,7 +26,7 @@ function HeroBanner() {
   }, [currentIndex]);
 
   return (
-    <div className="hero-container">
+    <div className="hero">
       <div className="hero__image-section">
         <img
           src={images[currentIndex]}

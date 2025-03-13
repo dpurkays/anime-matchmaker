@@ -5,10 +5,10 @@
 .site-header {
     display: flex;
     flex-direction: column;
-    padding: 1rem $col-spacing-mobile;
+    @include page-layout;
     
     &__title{
         color: $highlight-color;
-        @include h2-mobile;
+        @include h2-style;
     }
 }

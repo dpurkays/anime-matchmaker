@@ -12,17 +12,34 @@
     }
 }
 
-@mixin h1-mobile {
+@mixin h1-style {
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-size: 28px;
     line-height: 36px;
+
+    @include tablet {
+        font-size: 32px;
+        line-height: 40px;
+    }
 }
 
-@mixin h2-mobile {
+@mixin h2-style {
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
+
+    @include tablet {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
+@mixin page-layout {
+    padding: 1rem $col-spacing-mobile;
+
+    @include tablet{
+        padding: 1.5rem $col-spacing-tablet;
+    }
+}
