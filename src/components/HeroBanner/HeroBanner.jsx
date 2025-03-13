@@ -8,7 +8,7 @@ import img5 from "../../assets/images/hero-5.jpg";
 import "./HeroBanner.scss";
 
 const images = [img1, img2, img3, img4, img5];
-function HeroBanner() {
+function HeroBanner({ setSelectionType }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [blur, setblur] = useState(true);
 
@@ -49,6 +49,7 @@ function HeroBanner() {
               className="hero__link"
               smooth={true}
               duration={500}
+              onClick={() => setSelectionType(null)}
             >
               Get Started
             </Link>

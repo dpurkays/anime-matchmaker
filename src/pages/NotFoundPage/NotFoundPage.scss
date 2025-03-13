@@ -5,6 +5,7 @@
 .not-found {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
     gap: 1rem;
     @include page-layout;
 

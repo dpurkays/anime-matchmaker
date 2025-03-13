@@ -2,15 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.site-header {
-    display: flex;
-    flex-direction: column;
-    @include page-layout;
-    
-    &__link {
-        text-decoration: none;
-    }
-    &__title{
+.search-tv {
+    &__title {
         color: $highlight-color;
         @include h2-style;
     }

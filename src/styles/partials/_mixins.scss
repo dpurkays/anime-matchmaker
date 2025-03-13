@@ -17,6 +17,7 @@
     font-weight: 400;
     font-size: 28px;
     line-height: 36px;
+    color: $highlight-color;
 
     @include tablet {
         font-size: 32px;
