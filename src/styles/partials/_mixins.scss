@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+
+@mixin h1-mobile {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+@mixin h2-mobile {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+}
+
