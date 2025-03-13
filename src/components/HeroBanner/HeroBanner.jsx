@@ -9,11 +9,18 @@ import "./HeroBanner.scss";
 const images = [img1, img2, img3, img4, img5];
 function HeroBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [blur, setblur] = useState(true);
 
   useEffect(() => {
+    const slideOutTime = 500;
+    const switchImageTime = 5000;
     const timeout = setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+      setblur(false);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setblur(true);
+      }, slideOutTime);
+    }, switchImageTime);
 
     return () => clearTimeout(timeout);
   }, [currentIndex]);
@@ -24,7 +31,7 @@ function HeroBanner() {
         <img
           src={images[currentIndex]}
           alt="anime banner"
-          className="hero__image"
+          className={`hero__image ${blur ? "hero__image--active" : ""}`}
         />
       </div>
       <section className="hero__text-section">
