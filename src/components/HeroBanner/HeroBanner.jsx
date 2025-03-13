@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 import img1 from "../../assets/images/hero-1.jpg";
 import img2 from "../../assets/images/hero-2.jpg";
 import img3 from "../../assets/images/hero-3.jpg";
@@ -38,9 +39,20 @@ function HeroBanner() {
         <h1 className="hero__title">Find your anime match</h1>
         <div className="hero__content">
           <p className="hero__text">
-            AI powered recommendations based on mood and your preferences.
+            Struggling to find the perfect anime? Let AI match you with the best
+            picks based on your mood, past favorites, or even your favorite TV
+            shows.
           </p>
-          <div className="hero__button">Get Started</div>
+          <div className="hero__button">
+            <Link
+              to="selection-section"
+              className="hero__link"
+              smooth={true}
+              duration={500}
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </section>
     </div>
