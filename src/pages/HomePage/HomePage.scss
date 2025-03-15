@@ -43,23 +43,3 @@
         @include button-style;
     }
 }
-
-.selected {
-    border-top: 0.15rem solid $line-divider-color;
-    padding-top: 1rem;
-    @include page-layout;
-
-    &__back-button {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 0.25rem;
-    }
-
-    &__back-icon {
-        width: 24px;
-        height: 24px;
-        fill: $highlight-color;
-    }
-
-}

@@ -2,9 +2,9 @@ import actionImg from "../../assets/images/action.jpeg";
 import chillImg from "../../assets/images/chill.jpg";
 import comedyImg from "../../assets/images/comedy.png";
 import darkImg from "../../assets/images/dark.jpg";
-import "./SearchMood.scss";
+import "./MoodList.scss";
 
-function SearchMood() {
+function MoodList({ cardClickHandler }) {
   const moods = [
     {
       name: "Chill & Relaxing",
@@ -34,11 +34,14 @@ function SearchMood() {
 
   console.log(moods);
   return (
-    <section className="search-mood">
-      <h2 className="search-mood__title">Search by Mood</h2>
-      <ul className="search-mood__grid">
+    <>
+      <ul className="mood-grid">
         {moods.map((mood, index) => (
-          <li key={index} className="mood-card">
+          <li
+            key={index}
+            className="mood-card"
+            onClick={() => cardClickHandler(mood.genre)}
+          >
             <img
               src={mood.image}
               alt={`anime describing the ${mood.description} theme`}
@@ -51,8 +54,8 @@ function SearchMood() {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   );
 }
 
-export default SearchMood;
+export default MoodList;

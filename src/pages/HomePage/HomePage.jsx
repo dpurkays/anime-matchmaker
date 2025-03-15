@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SearchHistory from "../../components/SearchHistory/SearchHistory";
-import SearchMood from "../../components/SearchMood/SearchMood";
 import SearchTV from "../../components/SearchTV/SearchTV";
+import SelectMood from "../../components/SelectMood/SelectMood";
 import "./HomePage.scss";
 
 function HomePage() {
   const [selectionType, setSelectionType] = useState(null);
-
+  const selectionRef = useRef(null);
   useEffect(() => {}, [selectionType]);
 
   return (
     <main className="home">
       <HeroBanner setSelectionType={setSelectionType} />
       {!selectionType ? (
-        <section id="selection-section" className="selection">
+        <section
+          id="selection-section"
+          ref={selectionRef}
+          className="selection"
+        >
           <h2 className="selection__title">
             How do you want to find your anime match?
           </h2>
@@ -41,7 +45,7 @@ function HomePage() {
         </section>
       ) : (
         <div className="selected">
-          <div
+          {/* <div
             className="selected__back-button"
             onClick={() => setSelectionType(null)}
           >
@@ -54,10 +58,17 @@ function HomePage() {
               <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
             </svg>
             <p className="selected__back-text">Back</p>
-          </div>
-          {selectionType === "mood" && <SearchMood />}
-          {selectionType === "history" && <SearchHistory />}
-          {selectionType === "tv" && <SearchTV />}
+          </div> */}
+          {selectionType === "mood" && (
+            <SelectMood
+              setSelectionType={setSelectionType}
+              selectionRef={selectionRef}
+            />
+          )}
+          {selectionType === "history" && (
+            <SearchHistory selectionRef={selectionRef} />
+          )}
+          {selectionType === "tv" && <SearchTV selectionRef={selectionRef} />}
         </div>
       )}
     </main>

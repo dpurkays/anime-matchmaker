@@ -1,31 +1,21 @@
+
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.search-mood {
-    display: flex;
-    flex-direction: column;
+.mood-grid {
+    display: grid;
     gap: 1rem;
 
-    &__title {
-        color: $highlight-color;
-        @include h2-style;
+    grid-template-columns: 1fr;
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+
     }
 
-    &__grid {
-        display: grid;
-        gap: 1rem;
-
-        grid-template-columns: 1fr;
-
-        @include tablet {
-            grid-template-columns: repeat(2, 1fr);
-
-        }
-
-        @include desktop {
-            grid-template-columns: repeat(3, 1fr);
-        }
+    @include desktop {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -36,9 +26,7 @@
     padding: 1rem;
     @include card-style;
 
-    @include tablet {
-
-    }
+    @include tablet {}
 
     &__image {
         width: 100%;
@@ -66,7 +54,5 @@
         color: $accent-color;
     }
 
-    &__description {
-
-    }
+    &__description {}
 }
