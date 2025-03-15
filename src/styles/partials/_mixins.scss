@@ -61,3 +61,17 @@
         color: $text-color-light-bg;
     }
 }
+
+@mixin card-style {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba($accent-color, 0.2);
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0px 6px 15px rgba($highlight-color, 0.3);
+    }
+}
