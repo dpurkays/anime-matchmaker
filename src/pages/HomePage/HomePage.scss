@@ -44,9 +44,10 @@
 }
 
 .selected {
-    @include page-layout;
     border-top: 0.15rem solid $line-divider-color;
     padding-top: 1rem;
+    @include page-layout;
+    
     &__back-button {
         display: flex;
         justify-content: flex-end;
