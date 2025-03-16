@@ -15,44 +15,48 @@
     }
 
     @include desktop {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 .mood-card {
-    display: grid;
-    grid-template-columns: 100px 1fr;
+    display: flex;
+    flex-direction: column;
+    // grid-template-columns: 100px 1fr;
     gap: 1rem;
     padding: 1rem;
     @include card-style;
 
     @include tablet {}
 
-    &__image {
-        width: 100%;
-        height: 100px;
-        border-radius: 8px;
-        object-fit: cover;
-
-        @include tablet {
-            height: 150px;
-        }
-
-        @include desktop {
-            height: 100%
-        }
-    }
-
-    &__text {
+    &__context {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__emoji {
+        font-size: 32px;
     }
 
     &__name {
         font-weight: 500;
         color: $accent-color;
+        @include h3-style;
     }
 
-    &__description {}
+    &__description {
+        text-align: center;
+    }
 }

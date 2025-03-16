@@ -5,7 +5,7 @@
 .home {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    // gap: 1rem;
     
     // @include page-layout;
 }
@@ -19,7 +19,7 @@
     @include tablet {
         align-items: center;
         gap: 1.5rem;
-        margin-top: 1.5rem;
+        // margin-top: 1.5rem;
     }
 
     &__title {

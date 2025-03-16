@@ -1,56 +1,25 @@
 import { useState } from "react";
-import actionImg from "../../assets/images/action.jpeg";
-import chillImg from "../../assets/images/chill.jpg";
-import comedyImg from "../../assets/images/comedy.png";
-import darkImg from "../../assets/images/dark.jpg";
+import AnimeList from "../AnimeList/AnimeList";
 import MoodList from "../MoodList/MoodList";
 import "./SelectMood.scss";
 
 function SelectMood({ setSelectionType, selectionRef }) {
-  const [selected, setSelected] = useState(null);
-
-  const moods = [
-    {
-      name: "Chill & Relaxing",
-      description: "Laid-back anime with peaceful vibes",
-      image: chillImg,
-      genre: "Slice of Life",
-    },
-    {
-      name: "High Energy",
-      description: "Action-packed, fast-paced anime",
-      image: actionImg,
-      genre: "Action",
-    },
-    {
-      name: "Comedy",
-      description: "Funny & light-hearted anime",
-      image: comedyImg,
-      genre: "Comedy",
-    },
-    {
-      name: "Dark & Mysterious",
-      description: "Thrilling, suspenseful anime",
-      image: darkImg,
-      genre: "Mystery",
-    },
-  ];
+  const [selectedMood, setSelectedMood] = useState(null);
 
   const cardClickHandler = (selectedMood) => {
-    setSelected(true);
+    setSelectedMood(true);
     console.log(selectedMood);
   };
 
   const backClickHandler = () => {
-    if (!selected) {
+    if (!selectedMood) {
       setSelectionType(null);
       selectionRef.current?.scrollIntoView({ behavior: smooth });
     } else {
-      setSelected(null);
+      setSelectedMood(null);
     }
   };
 
-  console.log(moods);
   return (
     <section className="select-mood">
       <header className="select-mood__header">
@@ -67,7 +36,11 @@ function SelectMood({ setSelectionType, selectionRef }) {
           <p className="selected__back-text">Back</p>
         </div>
       </header>
-      {!selected ? <MoodList cardClickHandler={cardClickHandler} /> : "loading"}
+      {!selectedMood ? (
+        <MoodList cardClickHandler={cardClickHandler} />
+      ) : (
+        <AnimeList selectedMood={selectedMood} />
+      )}
     </section>
   );
 }

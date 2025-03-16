@@ -1,56 +1,49 @@
-import actionImg from "../../assets/images/action.jpeg";
-import chillImg from "../../assets/images/chill.jpg";
-import comedyImg from "../../assets/images/comedy.png";
-import darkImg from "../../assets/images/dark.jpg";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./MoodList.scss";
 
 function MoodList({ cardClickHandler }) {
-  const moods = [
-    {
-      name: "Chill & Relaxing",
-      description: "Laid-back anime with peaceful vibes",
-      image: chillImg,
-      genre: "Slice of Life",
-    },
-    {
-      name: "High Energy",
-      description: "Action-packed, fast-paced anime",
-      image: actionImg,
-      genre: "Action",
-    },
-    {
-      name: "Comedy",
-      description: "Funny & light-hearted anime",
-      image: comedyImg,
-      genre: "Comedy",
-    },
-    {
-      name: "Dark & Mysterious",
-      description: "Thrilling, suspenseful anime",
-      image: darkImg,
-      genre: "Mystery",
-    },
-  ];
+  const [moods, setMoods] = useState(null);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  console.log(moods);
+  useEffect(() => {
+    const fetchMoods = async () => {
+      try {
+        const response = await axios.get(`${backendUrl}/api/moods`);
+        console.log(response);
+        setMoods(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchMoods();
+  }, []);
+
+  if (!moods) {
+    return "Loading moods...";
+  }
+
   return (
     <>
       <ul className="mood-grid">
-        {moods.map((mood, index) => (
+        {moods.map((mood) => (
           <li
-            key={index}
+            key={mood.id}
             className="mood-card"
-            onClick={() => cardClickHandler(mood.genre)}
+            onClick={() => cardClickHandler(mood.genres)}
           >
-            <img
+            {/* <img
               src={mood.image}
               alt={`anime describing the ${mood.description} theme`}
               className="mood-card__image"
-            />
-            <section className="mood-card__text">
-              <h3 className="mood-card__name">{mood.name}</h3>
+            /> */}
+            <div className="mood-card__context">
+              <section className="mood-card__header">
+                <p className="mood-card__emoji">{mood.emoji}</p>
+                <h3 className="mood-card__name">{mood.name}</h3>
+              </section>
               <p className="mood-card__description">{mood.description}</p>
-            </section>
+            </div>
           </li>
         ))}
       </ul>
