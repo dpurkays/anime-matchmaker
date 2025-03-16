@@ -19,9 +19,10 @@
 }
 
 .selected {
-    border-top: 0.15rem solid $line-divider-color;
+    // border-top: 0.15rem solid $line-divider-color;
     padding-top: 1rem;
     @include page-layout;
+    @include divider-line;
 
     &__back-button {
         display: flex;
