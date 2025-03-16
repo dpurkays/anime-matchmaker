@@ -32,7 +32,7 @@ function GenreList({ selectedMood, cardClickHandler }) {
         <li
           key={genre.id}
           className="genre-card"
-          onClick={() => cardClickHandler(genre.jikan_genre_ids)}
+          onClick={() => cardClickHandler(selectedMood.id, genre.id)}
         >
           <h4 className="genre-card__name">{genre.name}</h4>
           <p className="genre-card__description">{genre.description}</p>

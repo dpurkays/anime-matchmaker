@@ -1,29 +1,29 @@
-import actionImg from "../../assets/images/action.jpeg";
+import { formatRating } from "../../utils/utils";
 import "./AnimeList.scss";
-
-function AnimeList({ selectedMood }) {
-  const [animeList, setAnimeList] = useState(null);
-
-  // const fetchAnimeByMood = async () => {
-  //   try {
-  //     const response = await axios.get();
-  //     console.log(response.data);
-  //     setAnimeList(response.data);
-  //   }
-  // }
-
+function AnimeList({ animes }) {
+  if (!animes) {
+    return "Loading Animes...";
+  }
   return (
     <ul className="anime-grid">
-      <li className="anime-card">
-        <img src={actionImg} alt="anime" className="anime-card__image" />
-        <div className="anime-card__context">
-          <h3 className="anime-card__name">Anime Title</h3>
-          <ul className="anime-card__genre-list">
-            <li className="anime-card__genre">Comedy</li>
-            <li className="anime-card__genre">Action</li>
-          </ul>
-        </div>
-      </li>
+      {animes.map((anime) => (
+        <li key={anime.mal_id} className="anime-card">
+          <div className="anime-card__image-container">
+            <img
+              src={anime.images.jpg.image_url}
+              alt="anime"
+              className="anime-card__image"
+            />
+            <p className="anime-card__rating">{formatRating(anime.rating)}</p>
+            {/* <p className="anime-card__meta">{anime.score}</p> */}
+          </div>
+
+          <div className="anime-card__context">
+            <h3 className="anime-card__name">{anime.title_english}</h3>
+            <p className="anime-card__meta">{anime.year}</p>
+          </div>
+        </li>
+      ))}
     </ul>
   );
 }
