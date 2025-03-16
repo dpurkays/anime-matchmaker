@@ -15,7 +15,6 @@ function AnimeList({ animes }) {
               className="anime-card__image"
             />
             <p className="anime-card__rating">{formatRating(anime.rating)}</p>
-            {/* <p className="anime-card__meta">{anime.score}</p> */}
           </div>
 
           <div className="anime-card__context">
