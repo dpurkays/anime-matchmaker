@@ -1,3 +1,66 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
+
+
+.anime-details {
+   
+}
+
+.anime-header {
+    &__image {
+
+    }
+}
+
+.anime-info {
+    &__title {
+
+    }
+
+    &__romanji-title {
+
+    }
+}
+
+.anime-meta {
+    &__badge {
+
+    }
+}
+
+.anime-buttons {
+    &__button {
+        @include button-style;
+    }
+}
+
+.anime-description {
+    &__synopsis-title {
+
+    }
+
+    &__synopsis {
+
+    }
+}
+
+.anime-genres {
+    &__badge {
+
+    }
+}
+
+.anime-details {
+    &__title {
+
+    }
+
+    &__text {
+
+    }
+}
+
+.anime-trailor {
+    
+}

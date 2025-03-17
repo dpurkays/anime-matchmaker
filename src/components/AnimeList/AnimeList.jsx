@@ -1,13 +1,19 @@
+import { useNavigate } from "react-router";
 import { formatRating } from "../../utils/utils";
 import "./AnimeList.scss";
 function AnimeList({ animes }) {
+  const navigate = useNavigate();
   if (!animes) {
     return "Loading Animes...";
   }
   return (
     <ul className="anime-grid">
       {animes.map((anime) => (
-        <li key={anime.mal_id} className="anime-card">
+        <li
+          key={anime.mal_id}
+          className="anime-card"
+          onClick={() => navigate(`/anime/${anime.mal_id}`)}
+        >
           <div className="anime-card__image-container">
             <img
               src={anime.images.jpg.image_url}
