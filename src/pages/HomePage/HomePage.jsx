@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SearchHistory from "../../components/SearchHistory/SearchHistory";
-import SearchTV from "../../components/SearchTV/SearchTV";
 import SelectMood from "../../components/SelectMood/SelectMood";
 import "./HomePage.scss";
 
 function HomePage() {
   const [selectionType, setSelectionType] = useState(null);
   const selectionRef = useRef(null);
+  const navigate = useNavigate();
   useEffect(() => {}, [selectionType]);
 
   return (
@@ -38,7 +39,7 @@ function HomePage() {
               </div>
               <div
                 className="selection__button"
-                onClick={() => setSelectionType("tv")}
+                onClick={() => navigate("/tv")}
               >
                 By TV series or Movie
               </div>
@@ -55,7 +56,6 @@ function HomePage() {
             {selectionType === "history" && (
               <SearchHistory selectionRef={selectionRef} />
             )}
-            {selectionType === "tv" && <SearchTV selectionRef={selectionRef} />}
           </div>
         )}
       </div>

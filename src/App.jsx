@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import AnimeDetailsPage from "./pages/AnimeDetailsPage/AnimeDetailsPage";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import SearchTVPage from "./pages/SearchTVPage/SearchTVPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" />} />
           <Route path="anime/:animeId" element={<AnimeDetailsPage />} />
+          <Route path="tv" element={<SearchTVPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
