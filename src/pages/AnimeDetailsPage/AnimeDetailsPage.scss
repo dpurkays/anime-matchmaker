@@ -89,8 +89,9 @@
     flex-direction: column;
 
     &__title {
-        @include h3-style;
         padding-bottom: 1rem;
+        @include h3-style;
+    
     }
 
     &__text-container {
@@ -104,6 +105,12 @@
     }
 }
 
-.anime-trailor {
-
+.anime-trailer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    &__title {
+        @include h3-style;
+    }
 }

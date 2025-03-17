@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Synopsis from "../../components/Synopsis/Synopsis";
+import TrailerVideo from "../../components/TrailerVideo/TrailerVideo";
 import { formatAiringStatus, formatDuration } from "../../utils/utils";
 import "./AnimeDetailsPage.scss";
 
@@ -88,7 +89,14 @@ function AnimeDetailsPage() {
           </p>
         </div>
       </section>
-      <div className="anime-trailer">trailer goes here </div>
+      <section className="anime-trailer">
+        <h3 className="anime-trailer__title">Trailer</h3>
+        {/* {console.log(anime.trailer.youtube_id)} */}
+        <TrailerVideo
+          videoId={anime.trailer.youtube_id}
+          animeName={anime.title_english}
+        />
+      </section>
     </main>
   );
 }

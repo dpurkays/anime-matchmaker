@@ -96,9 +96,10 @@
 @mixin badge-style {
     padding: 0.5rem;
     border-radius: 10px;
-    background-color: $secondary-bg;
+    background-color: $tag-color;
 
     &:hover {
         background-color: $accent-color;
+        color: $text-color-light-bg;
     }
 }
