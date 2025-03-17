@@ -3,19 +3,36 @@
 @use "../../styles/partials/fonts" as *;
 
 
-.anime-details {
-   
+.anime-details-page {
+   @include page-layout;
+
+   @include desktop {
+        margin: auto 0;
+   }
 }
 
 .anime-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    @include tablet {
+        flex-direction: row;
+    }
     &__image {
-
+       
     }
 }
 
 .anime-info {
-    &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    // padding: 1rem 0;
 
+    &__title {
+        color: $highlight-color;
+        @include h2-style;
     }
 
     &__romanji-title {
@@ -24,43 +41,69 @@
 }
 
 .anime-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     &__badge {
-
+        @include badge-style;
     }
 }
 
 .anime-buttons {
+    display: flex;
+    padding: 1rem 0;
+    gap: 1rem;
     &__button {
         @include button-style;
     }
 }
 
 .anime-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     &__synopsis-title {
-
+        @include h3-style;
+        @include tablet {
+            padding-top: 1rem;
+        }
     }
 
     &__synopsis {
-
+    
     }
 }
 
 .anime-genres {
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     &__badge {
-
+        @include badge-style;
     }
 }
 
 .anime-details {
-    &__title {
+    display: flex;
+    flex-direction: column;
 
+    &__title {
+        @include h3-style;
+        padding-bottom: 1rem;
     }
 
+    &__text-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+
+    }
     &__text {
 
     }
 }
 
 .anime-trailor {
-    
+
 }

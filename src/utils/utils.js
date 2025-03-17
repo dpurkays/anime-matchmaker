@@ -5,5 +5,13 @@ const formatRating = (rating) => {
     return rating.split(" ")[0];
 } 
 
+const formatAiringStatus = (status) => {
+    if (status === "Finished Airing") return "Completed";
+}
 
-export { formatRating };
+const formatDuration = (duration) => {
+    return duration.split(" ").splice(0,2).join(" ");
+}
+
+export { formatAiringStatus, formatDuration, formatRating };
+

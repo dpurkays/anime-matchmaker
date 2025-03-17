@@ -92,3 +92,13 @@
 @mixin divider-line {
     border-top: 0.15rem solid $line-divider-color;
 }
+
+@mixin badge-style {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: $secondary-bg;
+
+    &:hover {
+        background-color: $accent-color;
+    }
+}
