@@ -1,6 +1,6 @@
 import "./SectionHeader.scss";
 
-function SectionHeader({ backClickHandler }) {
+function SectionHeader({ title, backClickHandler }) {
   return (
     <header className="section-header">
       <div className="section-header__back-button" onClick={backClickHandler}>
@@ -14,7 +14,7 @@ function SectionHeader({ backClickHandler }) {
         </svg>
         <p className="section-header__back-text">Back</p>
       </div>
-      <h2 className="section-header__title">Select a Mood</h2>
+      <h2 className="section-header__title">{title}</h2>
     </header>
   );
 }

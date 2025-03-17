@@ -3,6 +3,7 @@
 @use "../../styles/partials/fonts" as *;
 
 .home {
+    @include page-layout;
     @include desktop {
         display: flex;
         justify-content: center;

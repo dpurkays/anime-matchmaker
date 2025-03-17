@@ -49,7 +49,10 @@ function SelectMood({ setSelectionType, selectionRef }) {
 
   return (
     <section className="select-mood">
-      <SectionHeader backClickHandler={backClickHandler} />
+      <SectionHeader
+        title="Select a mood"
+        backClickHandler={backClickHandler}
+      />
       {!selectedMood ? (
         <MoodList cardClickHandler={cardClickHandler} />
       ) : (
