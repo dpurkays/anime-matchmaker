@@ -10,7 +10,7 @@ function TrailerVideo({ videoId, animeName }) {
         src={`${youtubeUrl}/embed/${videoId}`}
         title={animeName}
         allowFullScreen
-        className="video-container__video"
+        className="video-container__iframe"
       ></iframe>
     </div>
   );

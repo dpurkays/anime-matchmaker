@@ -12,7 +12,7 @@
         justify-content: space-between;
     }
     &__title {
-        color: $highlight-color;
+        color: $primary-accent-color;
         @include h2-style;
     }
 
@@ -21,20 +21,22 @@
 .selected {
     // border-top: 0.15rem solid $line-divider-color;
     padding-top: 1rem;
-    @include page-layout;
     @include divider-line;
+    @include page-layout;
+    
 
     &__back-button {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 0.25rem;
+        cursor: pointer;
     }
 
     &__back-icon {
         width: 24px;
         height: 24px;
-        fill: $highlight-color;
+        fill: $primary-accent-color;
     }
 
 }

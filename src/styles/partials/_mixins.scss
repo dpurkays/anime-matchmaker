@@ -17,7 +17,7 @@
     font-weight: 400;
     font-size: 28px;
     line-height: 36px;
-    color: $highlight-color;
+    color: $primary-accent-color;
 
     @include tablet {
         font-size: 32px;
@@ -40,7 +40,7 @@
 @mixin h3-style {
     font-family: "Nunito", sans-serif;
     font-weight: 700;
-    color: $accent-color;
+    color: $secondary-accent-color;
     font-size: 18px;
     line-height: 24px;
 
@@ -51,14 +51,14 @@
 }
 
 @mixin page-layout {
-    padding: 1rem $col-spacing-mobile;
+    padding: $spacing-mobile;
 
     @include tablet{
-        padding: 1.5rem $col-spacing-tablet;
+        padding: $spacing-tablet;
     }
 
     @include desktop {
-        padding: 1.5rem $col-spacing-desktop;
+        padding: 1.5rem $spacing-desktop;
     }
 }
 
@@ -70,7 +70,7 @@
     cursor: pointer;
 
     &:hover {
-        background-color: $accent-color;
+        background-color: $secondary-accent-color;
         color: $text-color-light-bg;
     }
 }
@@ -81,11 +81,11 @@
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba($accent-color, 0.2);
+    box-shadow: 0px 4px 10px rgba($secondary-accent-color, 0.2);
 
     &:hover {
         transform: scale(1.02) translateY(-5px);
-        box-shadow: 0px 6px 15px rgba($highlight-color, 0.3);
+        box-shadow: 0px 6px 15px rgba($primary-accent-color, 0.3);
     }
 }
 
@@ -99,7 +99,7 @@
     background-color: $tag-color;
 
     &:hover {
-        background-color: $accent-color;
+        background-color: $secondary-accent-color;
         color: $text-color-light-bg;
     }
 }

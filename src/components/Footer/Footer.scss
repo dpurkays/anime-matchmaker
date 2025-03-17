@@ -14,10 +14,10 @@
 
     &__icon {
         height: 32px;
-        fill: $highlight-color;
+        fill: $primary-accent-color;
 
         &:hover{
-            fill: $accent-color;
+            fill: $secondary-accent-color;
         }
     }
 }

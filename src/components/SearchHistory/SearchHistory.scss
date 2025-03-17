@@ -4,7 +4,7 @@
 
 .search-history {
     &__title {
-        color: $highlight-color;
+        color: $primary-accent-color;
         @include h2-style;
     }
 }

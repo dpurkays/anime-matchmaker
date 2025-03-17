@@ -55,7 +55,7 @@
 
     &__name {
         font-weight: 500;
-        color: $accent-color;
+        color: $secondary-accent-color;
         @include h3-style;
         // font-size: 32px;
     }
@@ -72,7 +72,7 @@
     &__title {
         @include h3-style;
         &{
-            color: $highlight-color;
+            color: $primary-accent-color;
             text-transform: uppercase;
         }
     }

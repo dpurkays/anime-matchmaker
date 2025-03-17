@@ -11,51 +11,12 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
-        gap: $col-spacing-tablet;
+        gap: $spacing-tablet;
     }
 
     @include desktop {
-        // width: 80%;
+        
     }
-
-
-
-    // &__image-section {
-    //     width: 500px;
-    //     height: 280px;
-    //     margin: 0 auto;
-    //     // border-radius: 10px;
-    //     // overflow: hidden;
-        
-    //     @include tablet {
-    //     }
-
-    //     @include desktop {
-    //         // width: 70%;
-    //         height: 450px;
-    //     }
-
-    // }
-
-    // &__image {
-    //     width: 100%;
-    //     opacity: 0;
-    //     object-fit: cover;
-    //     object-position: top;
-    //     transition: opacity 1s ease-in-out;
-        
-    //     &--active {
-    //         opacity: 1;
-    //     }
-
-    //     @include tablet {
-    //         max-height: 700px;
-    //     }
-
-    //     @include desktop {
-    //     }
-
-    // }
 
     &__text-section {
         display: flex;
@@ -68,8 +29,8 @@
     }
 
     &__title {
-        color: $highlight-color;
-        text-shadow: 3px 3px 5px rgba($highlight-color, 0.6);
+        color: $primary-accent-color;
+        text-shadow: 3px 3px 5px rgba($primary-accent-color, 0.6);
         @include h1-style;
     }
 
