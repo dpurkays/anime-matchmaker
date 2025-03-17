@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Synopsis from "../../components/Synopsis/Synopsis";
 import { formatAiringStatus, formatDuration } from "../../utils/utils";
 import "./AnimeDetailsPage.scss";
 
@@ -52,7 +53,7 @@ function AnimeDetailsPage() {
       </header>
       <section className="anime-description">
         <h3 className="anime-description__synopsis-title">Synopsis</h3>
-        <p className="anime-description__synopsis">{anime.synopsis}</p>
+        <Synopsis text={anime.synopsis} />
       </section>
       <section className="anime-genres">
         {anime.genres.map((genre) => (
