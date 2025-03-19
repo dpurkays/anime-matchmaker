@@ -4,22 +4,21 @@ import { useParams } from "react-router";
 import { Link } from "react-scroll";
 import Synopsis from "../../components/Synopsis/Synopsis";
 import TrailerVideo from "../../components/TrailerVideo/TrailerVideo";
-import { formatAiringStatus, formatDuration } from "../../utils/utils";
 import "./AnimeDetailsPage.scss";
 
 function AnimeDetailsPage() {
   const { animeId } = useParams();
   const [anime, setAnime] = useState(null);
-  const jikanUrl = "https://api.jikan.moe/v4/anime";
+  // const jikanUrl = "https://api.jikan.moe/v4/anime";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchAnime = async () => {
       try {
-        const response = await axios.get(`${jikanUrl}/${animeId}/full`);
-        console.log(response.data.data);
-        setAnime(response.data.data);
+        const response = await axios.get(`${backendUrl}/api/anime/${animeId}`);
+        setAnime(response.data);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching anime recommendations: ", error);
       }
     };
     fetchAnime();
@@ -31,7 +30,7 @@ function AnimeDetailsPage() {
       <div className="anime-details-page__wrapper">
         <header className="anime-header">
           <img
-            src={anime.images.jpg.image_url}
+            src={anime.image}
             alt={anime.title_english}
             className="anime-header__image"
           />
@@ -45,9 +44,7 @@ function AnimeDetailsPage() {
             <div className="anime-meta">
               <span className="anime-meta__badge">{anime.type}</span>
               <span className="anime-meta__badge">{anime.episodes} ep</span>
-              <span className="anime-meta__badge">
-                {formatDuration(anime.duration)}
-              </span>
+              <span className="anime-meta__badge">{anime.duration}</span>
               <span className="anime-meta__badge">❤️ {anime.favorites}</span>
             </div>
             <div className="anime-buttons">
@@ -84,7 +81,7 @@ function AnimeDetailsPage() {
           <div className="anime-details__text-container">
             <p className="anime-details__text">
               <b>Status: </b>
-              {formatAiringStatus(anime.status)}
+              {anime.status}
             </p>
             <p className="anime-details__text">
               <b>Aired: </b>
@@ -92,7 +89,7 @@ function AnimeDetailsPage() {
             </p>
             <p className="anime-details__text">
               <b>Studio: </b>
-              {anime.studios[0].name}
+              {anime.studio}
             </p>
             <p className="anime-details__text">
               <b>Rating: </b>
@@ -102,9 +99,9 @@ function AnimeDetailsPage() {
         </section>
         <section id="anime-trailer" className="anime-trailer">
           <h3 className="anime-trailer__title">Trailer</h3>
-          {/* {console.log(anime.trailer.youtube_id)} */}
+          {console.log(anime.youtube_id)}
           <TrailerVideo
-            videoId={anime.trailer.youtube_id}
+            videoId={anime.youtube_id}
             animeName={anime.title_english}
           />
         </section>
