@@ -15,11 +15,7 @@ function AnimeList({ animes }) {
           onClick={() => navigate(`/anime/${anime.mal_id}`)}
         >
           <div className="anime-card__image-container">
-            <img
-              src={anime.images.jpg.image_url}
-              alt="anime"
-              className="anime-card__image"
-            />
+            <img src={anime.image} alt="anime" className="anime-card__image" />
             <p className="anime-card__rating">{formatRating(anime.rating)}</p>
           </div>
 

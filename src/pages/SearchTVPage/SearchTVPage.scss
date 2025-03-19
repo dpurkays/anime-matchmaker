@@ -12,7 +12,7 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        padding: $spacing-mobile;
+        padding: 0 $spacing-mobile;
         
     }
 
@@ -20,13 +20,12 @@
         display: flex;
         flex-direction: column;
         gap: $spacing-mobile;
-        padding-top: $spacing-mobile;
         @include divider-line;
         @include page-layout;
 
-        @include tablet {
-            gap: $spacing-tablet;
-        }
+        // @include tablet {
+        //     gap: $spacing-tablet;
+        // }
     }
 
     &__content {

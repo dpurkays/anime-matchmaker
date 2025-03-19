@@ -15,7 +15,7 @@
    &__wrapper {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0 $spacing-mobile;
 
     @include card-style;
     &{
@@ -29,7 +29,7 @@
     }
 
     @include tablet {
-        padding: $spacing-tablet;
+        padding: 0 $spacing-tablet;
     }
 
     @include desktop {

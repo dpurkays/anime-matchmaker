@@ -3,16 +3,17 @@
 @use "../../styles/partials/fonts" as *;
 
 .home {
-    @include page-layout;
+    // @include page-layout;
     @include desktop {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     &__wrapper {
         display: flex;
         flex-direction: column;
-        padding: 1rem;
+        padding: 0 $spacing-mobile;
     }
 }
 

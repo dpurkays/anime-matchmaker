@@ -9,24 +9,22 @@ function SelectMood({ setSelectionType, selectionRef }) {
   const [selectedMood, setSelectedMood] = useState(null);
   const [animes, setAnimes] = useState(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const jikanUrl = "https://api.jikan.moe/v4/anime";
 
   const fetchAnimes = async (mood, genre) => {
     try {
       const genreResponse = await axios.get(
         `${backendUrl}/api/moods/${mood}/genres/${genre}`
       );
-      console.log(genreResponse);
-
       const { jikan_genre_ids } = genreResponse.data;
-      console.log(jikan_genre_ids);
 
-      const jikanResponse = await axios.get(
-        `${jikanUrl}?genres=${jikan_genre_ids.join(",")}&order_by=popularity`
+      const animeResponse = await axios.get(
+        `${backendUrl}/api/recommendations/anime-mood`,
+        {
+          params: { jikan_genre_ids: jikan_genre_ids.join(",") },
+        }
       );
-      console.log("Fetched Anime:", jikanResponse.data.data);
 
-      setAnimes(jikanResponse.data.data);
+      setAnimes(animeResponse.data);
     } catch (error) {
       console.error(error);
     }
