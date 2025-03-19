@@ -16,9 +16,10 @@ Finding the right anime can be overwhelming due to the large volume of anime. Wh
 
 ### Features
 
-- **Mood-Based Anime Search:** Users select a mood (e.g. "Chill & Relaxing", "High-Energy Action Packed") to get anime suggestions.
+✅- **Mood-Based Anime Search:** Users select a mood (e.g. "Chill & Relaxing", "High-Energy Action Packed") to get anime suggestions.
+
 - **AI powered recommendations:** Uses Gemini AI to analyse a user's watch list history and suggest relevant anime suggestions.
-- **Movie/TV show-based recommendations:** New users can enter a favorite Movie or TV show, and the app suggests similar anime.
+  🏗️- **Movie/TV show-based recommendations:** New users can enter a favorite Movie or TV show, and the app suggests similar anime.
 - **Users Watch List & History:** Tracks what the users have watched or what they plan on watching
 
 ## Implementation
@@ -32,7 +33,7 @@ Finding the right anime can be overwhelming due to the large volume of anime. Wh
   - react
   - react-router
   - axios
-  - Material UI
+  - react-spinners
 - Server Libraries:
   - knex
   - express

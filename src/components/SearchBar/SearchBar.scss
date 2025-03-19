@@ -15,9 +15,10 @@
         width: 90%;
 
         @include tablet{
-            max-width: 600px;
+            max-width: 300px;
             gap: $spacing-tablet
         }
+
     }
 
     &__input-wrapper {
@@ -61,10 +62,10 @@
 
         &::placeholder {
             color: $muted-text-color;
-            font-size: 10px;
+            font-size: 12px;
 
             @include tablet {
-                font-size: 12px;
+                font-size: 14px;
             }
         }
 
@@ -80,6 +81,10 @@
         border: none;
         font-size: inherit;
         @include button-style;
+
+        @include tablet {
+            // align-self: center;
+        }
 
     }
 
