@@ -4,9 +4,7 @@ import "./AnimeList.scss";
 function AnimeList({ animes, source }) {
   const [hoveredCard, setHoveredCard] = useState(null);
   const navigate = useNavigate();
-  if (!animes) {
-    return "Loading Animes...";
-  }
+  console.log(animes);
 
   return (
     <ul className="anime-grid">

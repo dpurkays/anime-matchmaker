@@ -23,7 +23,7 @@ function SelectMood({ setSelectionType, selectionRef }) {
           params: { jikan_genre_ids: jikan_genre_ids.join(",") },
         }
       );
-
+      console.log("fetch anime by mood", animeResponse.data);
       setAnimes(animeResponse.data);
     } catch (error) {
       console.error(error);
@@ -53,8 +53,10 @@ function SelectMood({ setSelectionType, selectionRef }) {
       />
       {!selectedMood ? (
         <MoodList cardClickHandler={cardClickHandler} />
-      ) : (
+      ) : animes && animes.length > 0 ? (
         <AnimeList animes={animes} />
+      ) : (
+        <p className="search-results__no-results">No results found.</p>
       )}
     </section>
   );
