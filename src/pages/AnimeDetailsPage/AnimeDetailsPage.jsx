@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-scroll";
+import BounceLoader from "react-spinners/BounceLoader";
 import Synopsis from "../../components/Synopsis/Synopsis";
 import TrailerVideo from "../../components/TrailerVideo/TrailerVideo";
 import "./AnimeDetailsPage.scss";
@@ -23,9 +24,9 @@ function AnimeDetailsPage() {
       } catch (error) {
         console.error("Error fetching anime recommendations: ", error);
       }
+      setLoading(false);
     };
     fetchAnime();
-    setLoading(false);
   }, [animeId]);
 
   return (
