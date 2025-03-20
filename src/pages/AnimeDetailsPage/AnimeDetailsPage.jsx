@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-scroll";
 import BounceLoader from "react-spinners/BounceLoader";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import Synopsis from "../../components/Synopsis/Synopsis";
 import TrailerVideo from "../../components/TrailerVideo/TrailerVideo";
 import "./AnimeDetailsPage.scss";
@@ -10,10 +11,9 @@ import "./AnimeDetailsPage.scss";
 function AnimeDetailsPage() {
   const { animeId } = useParams();
   const [anime, setAnime] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  // const jikanUrl = "https://api.jikan.moe/v4/anime";
+  const [loading, setLoading] = useState(true);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAnime = async () => {
@@ -39,6 +39,7 @@ function AnimeDetailsPage() {
         )}
         {!loading && anime && (
           <>
+            <SectionHeader backClickHandler={() => navigate(-1)} />
             <header className="anime-header">
               <img
                 src={anime.image}
