@@ -8,6 +8,11 @@
     align-items: flex-end;
     padding: 16px;
     
+    @include tablet {
+        padding-top: 20rem;
+    }
+    
+    
     &__text {
 
     }
