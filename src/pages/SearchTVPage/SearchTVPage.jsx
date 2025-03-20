@@ -64,18 +64,14 @@ function SearchTVPage() {
         </section>
 
         {loading && (
-          <div
-            id="loading-container"
-            className="loading-container"
-            tabIndex={-1}
-          >
-            <BounceLoader color="#FF477E" size={80} />
+          <div id="loading-container" className="loading-container">
+            <BounceLoader color="#FF477E" size={40} />
           </div>
         )}
         {query && !loading && animes && (
           <section className="search-results">
             <h3 className="search-results__title">Results for {query}</h3>
-            <AnimeList animes={animes} />
+            <AnimeList animes={animes} source="recommendations" />
           </section>
         )}
 

@@ -90,3 +90,32 @@
     }
     &__description {}
 }
+
+.anime-hover-card {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-mobile;
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba($secondary-bg, 0.9);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    z-index: 9999; 
+    pointer-events: none; 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .anime-card:hover & {
+        opacity: 1; 
+    }
+
+    &__title {
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+}
