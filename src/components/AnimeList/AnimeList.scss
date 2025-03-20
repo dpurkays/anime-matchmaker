@@ -94,7 +94,7 @@
 .anime-hover-card {
     display: flex;
     flex-direction: column;
-    gap: $spacing-mobile;
+    gap: 0.25rem;
     position: absolute;
     top: 40%; 
     left: 50%;
@@ -109,13 +109,14 @@
     pointer-events: none; 
     opacity: 0;
     transition: opacity 0.3s ease;
+    font-size: 16px;
 
     .anime-card:hover & {
         opacity: 1; 
     }
 
-    &__title {
-        font-size: 1.125rem;
+    &__name {
         font-weight: 700;
     }
+
 }
