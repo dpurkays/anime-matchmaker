@@ -32,8 +32,7 @@ function AnimeList({ animes, source }) {
                   {anime.title_english}
                 </h4>
                 <p className="anime-hover-card__similarity">
-                  {`This was recommended because... ${anime.similarity_reason} ` ||
-                    "Recommended for you"}
+                  {`${anime.similarity_reason} ` || "Recommended for you"}
                 </p>
               </section>
             )}

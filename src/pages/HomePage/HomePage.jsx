@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
-import SearchHistory from "../../components/SearchHistory/SearchHistory";
 import SelectMood from "../../components/SelectMood/SelectMood";
 import "./HomePage.scss";
 
@@ -33,7 +32,7 @@ function HomePage() {
               </div>
               <div
                 className="selection__button"
-                onClick={() => setSelectionType("history")}
+                onClick={() => navigate("/mal")}
               >
                 Based on watch history
               </div>
@@ -52,9 +51,6 @@ function HomePage() {
                 setSelectionType={setSelectionType}
                 selectionRef={selectionRef}
               />
-            )}
-            {selectionType === "history" && (
-              <SearchHistory selectionRef={selectionRef} />
             )}
           </div>
         )}
