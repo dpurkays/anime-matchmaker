@@ -17,17 +17,11 @@ function HottestPage() {
   const fetchAnimes = async () => {
     setLoading(true);
     try {
-      const cachedHottest = sessionStorage.getItem("hottestAnime");
-      if (cachedHottest) {
-        setAnimes(JSON.parse(cachedHottest));
-        return;
-      }
       const response = await axios.get(
         `${backendUrl}/api/anime/seasons/hottest`
       );
-      sessionStorage.setItem("hottestAnime", JSON.stringify(response.data));
-      console.log(response.data);
-      setAnimes(response.data);
+      const hottestAnime = response.data;
+      setAnimes(hottestAnime);
     } catch (error) {
       console.error("Error fetching anime recommendations: ", error);
     }
