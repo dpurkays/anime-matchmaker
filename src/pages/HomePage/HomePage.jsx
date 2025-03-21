@@ -1,14 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
+import MALUsernameModal from "../../components/MALUsernameModal/MALUsernameModal";
 import SelectMood from "../../components/SelectMood/SelectMood";
+
 import "./HomePage.scss";
 
 function HomePage() {
   const [selectionType, setSelectionType] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const selectionRef = useRef(null);
   const navigate = useNavigate();
+
   useEffect(() => {}, [selectionType]);
+
+  const usernameSubmitHandler = (username) => {
+    setIsModalOpen(false);
+    navigate("/mal", { state: { username } });
+  };
 
   return (
     <main className="home">
@@ -32,7 +41,7 @@ function HomePage() {
               </div>
               <div
                 className="selection__button"
-                onClick={() => navigate("/mal")}
+                onClick={() => setIsModalOpen(true)}
               >
                 Based on watch history
               </div>
@@ -55,6 +64,15 @@ function HomePage() {
           </div>
         )}
       </div>
+
+      <MALUsernameModal
+        isOpen={isModalOpen}
+        onUsernameSubmit={usernameSubmitHandler}
+        onClose={() => {
+          setIsModalOpen(false);
+          navigate("/season-hottest");
+        }}
+      />
     </main>
   );
 }

@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import AnimeDetailsPage from "./pages/AnimeDetailsPage/AnimeDetailsPage";
 import HomePage from "./pages/HomePage/HomePage";
+import HottestPage from "./pages/HottestPage/HottestPage";
 import MALAnimeRecsPage from "./pages/MALAnimeRecsPage/MALAnimeRecPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SearchTVPage from "./pages/SearchTVPage/SearchTVPage";
@@ -19,6 +20,7 @@ function App() {
           <Route path="anime/:animeId" element={<AnimeDetailsPage />} />
           <Route path="tv" element={<SearchTVPage />} />
           <Route path="mal" element={<MALAnimeRecsPage />} />
+          <Route path="season-hottest" element={<HottestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
