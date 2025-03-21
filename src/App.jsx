@@ -20,7 +20,7 @@ function App() {
           <Route path="anime/:animeId" element={<AnimeDetailsPage />} />
           <Route path="tv" element={<SearchTVPage />} />
           <Route path="/mal/:username" element={<MALAnimeRecsPage />} />
-          <Route path="season-hottest" element={<HottestPage />} />
+          <Route path="seasons/hottest" element={<HottestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

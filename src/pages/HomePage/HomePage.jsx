@@ -41,15 +41,21 @@ function HomePage() {
               </div>
               <div
                 className="selection__button"
+                onClick={() => navigate("/tv")}
+              >
+                By TV series or Movie
+              </div>
+              <div
+                className="selection__button"
                 onClick={() => setIsModalOpen(true)}
               >
                 Based on watch history
               </div>
               <div
                 className="selection__button"
-                onClick={() => navigate("/tv")}
+                onClick={() => navigate("/seasons/hottest")}
               >
-                By TV series or Movie
+                Season's Hottest
               </div>
             </div>
           </section>
@@ -70,7 +76,7 @@ function HomePage() {
         onUsernameSubmit={usernameSubmitHandler}
         onClose={() => {
           setIsModalOpen(false);
-          navigate("/season-hottest");
+          navigate("/seasons/hottest");
         }}
       />
     </main>

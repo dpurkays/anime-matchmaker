@@ -16,6 +16,10 @@ function MALAnimeRecsPage() {
   const navigate = useNavigate();
 
   const fetchAnimes = async (username) => {
+    console.log(
+      `🔄 Fetching anime recommendations for ${username} at ${new Date().toISOString()}`
+    );
+
     setLoading(true);
     try {
       const response = await axios.get(
@@ -29,12 +33,13 @@ function MALAnimeRecsPage() {
   };
 
   useEffect(() => {
+    console.log("MALAnimeRecsPage Mounted");
     if (username) {
       fetchAnimes(username);
     } else {
-      navigate("/season-hottest");
+      navigate("/seasons/hottest");
     }
-  }, [username]);
+  }, []);
 
   return (
     <main className="mal-recs">

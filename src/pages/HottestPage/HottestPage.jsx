@@ -1,9 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
+
 import "./HottestPage.scss";
 
 function HottestPage() {
@@ -16,7 +18,7 @@ function HottestPage() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${backendUrl}/api/anime/season-hottest`
+        `${backendUrl}/api/anime/seasons/hottest`
       );
       setAnimes(response.data);
     } catch (error) {
@@ -49,7 +51,7 @@ function HottestPage() {
             <AnimeList animes={animes} source="recommendations" />
           </section>
         )}
-        {!loading && username && !animes && (
+        {!loading && !animes && (
           <p className="search-results__no-results">No results found.</p>
         )}
       </div>
