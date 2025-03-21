@@ -1,0 +1,31 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+.mal-recs {
+    @include desktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 0 $spacing-mobile;
+
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-mobile;
+        @include divider-line;
+        @include page-layout;
+
+        // @include tablet {
+        //     gap: $spacing-tablet;
+        // }
+    }
+}

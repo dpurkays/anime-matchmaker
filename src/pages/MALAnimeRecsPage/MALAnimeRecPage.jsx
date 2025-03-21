@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
-import "./MALAnimeRecsPage.scss";
+import "./MALAnimeRecPage.scss";
 
 function MALAnimeRecsPage() {
   const navigate = useNavigate();
