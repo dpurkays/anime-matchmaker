@@ -39,7 +39,7 @@ function MoodList() {
 
   const handleMoodClick = (mood) => {
     console.log("🖱️ Mood clicked:", mood);
-    setSearchParams({ mood: mood.id.toString() });
+    // setSearchParams({ mood: mood.id.toString() });
     setSelectedMood(mood.id.toString());
     console.log("🔄 Updated URL to:", `?mood=${mood.id}`);
   };
