@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import MALUsernameModal from "../../components/MALUsernameModal/MALUsernameModal";
@@ -9,10 +9,32 @@ import "./HomePage.scss";
 function HomePage() {
   const [selectionType, setSelectionType] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [hottestAnimes, setHottestAnimes] = useState(null);
+  // const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const selectionRef = useRef(null);
   const navigate = useNavigate();
 
-  useEffect(() => {}, [selectionType]);
+  // const fetchAnimes = async () => {
+  //   try {
+  //     const cachedHottest = sessionStorage.getItem("hottestAnime");
+  //     if (cachedHottest) {
+  //       // console.log("🏠✅ Serving hottest anime from sessionStorage !");
+  //       setHottestAnimes(JSON.parse(cachedHottest));
+  //       return;
+  //     }
+  //     const response = await axios.get(
+  //       `${backendUrl}/api/anime/seasons/hottest`
+  //     );
+  //     sessionStorage.setItem("hottestAnime", JSON.stringify(response.data));
+  //     setHottestAnimes(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetching anime recommendations: ", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchAnimes();
+  // }, []);
 
   const usernameSubmitHandler = (username) => {
     setIsModalOpen(false);
