@@ -49,7 +49,7 @@ function HottestPage() {
             <h3 className="hottest-results__title">
               This season's hottest animes
             </h3>
-            <AnimeList animes={animes} source="recommendations" />
+            <AnimeList animes={animes} />
           </section>
         )}
         {!loading && !animes && (
