@@ -23,17 +23,24 @@ function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
       className="mal-modal"
       overlayClassName="mal-model__overlay"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 -960 960 960"
-        fill="none"
-        className="mal-modal__cancel-svg"
-        onClick={onClose}
-      >
-        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-      </svg>
-      <h2 className="mal-modal__title">Enter your MyAnimeList Username</h2>
+      <header className="mal-modal__header">
+        <h2 className="mal-modal__title">Connect Your MyAnimeList</h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          fill="none"
+          className="mal-modal__cancel-svg"
+          onClick={onClose}
+        >
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+        </svg>
+      </header>
+      <p className="mal-modal__description">
+        Share your MyAnimeList username for personalized anime recommendations
+        based on what you already watched!
+      </p>
       <form onSubmit={submitHandler} className="mal-modal__form">
+        {/* <label className="mal-modal__label">MyAnimeList Username </label> */}
         <input
           type="text"
           className="mal-modal__input"
@@ -42,8 +49,13 @@ function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
           placeholder="e.g. AnimeFan123"
           required
         />
+
         <div className="mal-modal__buttons">
-          <button type="button" className="mal-modal__cancel" onClick={onClose}>
+          <button
+            type="button"
+            className="mal-modal__button mal-modal__button--cancel"
+            onClick={onClose}
+          >
             Cancel
           </button>
           <button type="submit" className="mal-modal__button">
@@ -51,6 +63,19 @@ function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
           </button>
         </div>
       </form>
+
+      {/* Separator */}
+      <div className="mal-modal__divider">or</div>
+
+      {/* Footer message */}
+      <footer className="mal-modal__footer">
+        <p className="mal-modal__description">
+          Don't have a MyAnimeList account?
+        </p>
+        <p className="mal-modal__description">
+          You can still get recommendations based on mood or similar shows!
+        </p>
+      </footer>
     </Modal>
   );
 }

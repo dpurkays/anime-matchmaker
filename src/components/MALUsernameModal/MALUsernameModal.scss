@@ -1,3 +1,154 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.mal-model__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($primary-bg, 0.6);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;    
+    
+}
+
+.mal-modal {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-mobile;
+    background-color: $primary-bg;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba($primary-bg, 0.3);
+    position: fixed;
+    z-index: 10000;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.3s ease-in-out;
+
+    &__cancel-svg {
+        width: 24px;
+        height: 24px;
+        fill: $primary-text;
+        cursor: pointer;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $primary-accent-color;
+        padding: $spacing-mobile;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        margin: -2rem -2rem $spacing-mobile -2rem;
+
+    }
+    &__title {
+        @include h2-style;
+        & {
+            font-weight: 700;
+            font-family: "Nunito", sans-serif;
+        }
+    }
+
+    &__description {
+        font-size: 14px;
+        
+        @include tablet {
+            font-size: 16px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-mobile;
+    }
+
+    // &__label {
+    //     color: $muted-text-color;
+    //     font-size: 14px;
+        
+    //     @include tablet {
+    //         font-size: 16px;
+    //     }
+    // }
+
+    &__input {
+        width: 100%;
+        padding: $spacing-mobile;
+        border: none;
+        font-size: inherit;
+        background-color: $secondary-bg;
+        color: $primary-text;
+        box-shadow: 0px 4px 8px rgba($secondary-accent-color, 0.2);
+
+        &::placeholder {
+            color: $muted-text-color;
+            font-size: 12px;
+    
+            @include tablet {
+                font-size: 14px;
+            }
+        }
+
+        &:active,
+        &:focus {
+            box-shadow: 0px 4px 8px rgba($primary-accent-color, 0.2);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: $spacing-mobile;
+    }
+
+    &__button {
+        border: none;
+        @include button-style;
+
+        &--cancel {
+            background-color: $muted-text-color;
+
+            &:hover {
+                background-color: $secondary-bg;
+                color: $primary-text;
+            }
+        }
+    }
+
+    &__divider {
+        padding-top:$spacing-mobile;
+        color: $muted-text-color;
+        @include divider-line;
+    }
+
+    &__footer {
+        color: $muted-text-color;
+    }
+}
