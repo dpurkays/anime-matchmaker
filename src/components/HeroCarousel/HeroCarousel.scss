@@ -21,6 +21,7 @@
         height: 100%;
         object-fit: cover;
         transition: opacity 1s ease-in-out;
+        cursor: pointer;
     
         &--fade-in {
             opacity: 1;
