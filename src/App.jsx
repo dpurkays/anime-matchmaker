@@ -8,6 +8,7 @@ import HottestPage from "./pages/HottestPage/HottestPage";
 import MALAnimeRecsPage from "./pages/MALAnimeRecsPage/MALAnimeRecPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SearchTVPage from "./pages/SearchTVPage/SearchTVPage";
+import SelectMoodPage from "./pages/SelectMoodPage/SelectMoodPage";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" />} />
+          <Route path="/moods" element={<SelectMoodPage />} />
           <Route path="anime/:animeId" element={<AnimeDetailsPage />} />
           <Route path="tv" element={<SearchTVPage />} />
-          <Route path="/mal/:username" element={<MALAnimeRecsPage />} />
+          <Route path="mal/:username" element={<MALAnimeRecsPage />} />
           <Route path="seasons/hottest" element={<HottestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1,18 +1,25 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
-import AnimeList from "../AnimeList/AnimeList";
-import MoodList from "../MoodList/MoodList";
-import SectionHeader from "../SectionHeader/SectionHeader";
-import "./SelectMood.scss";
+import AnimeList from "../../components/AnimeList/AnimeList";
+import MoodList from "../../components/MoodList/MoodList";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import "./SelectMoodPage.scss";
 
-function SelectMood({ setSelectionType, selectionRef }) {
+function SelectMoodPage() {
   const [loading, setLoading] = useState(false);
-  const [selectedMood, setSelectedMood] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [animes, setAnimes] = useState(null);
+
+  const navigate = useNavigate();
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+  const mood = searchParams.get("mood");
+  const genre = searchParams.get("genre");
+
   const fetchAnimes = async (mood, genre) => {
+    if (!mood || !genre) return;
     setLoading(true);
     try {
       const genreResponse = await axios.get(
@@ -34,18 +41,18 @@ function SelectMood({ setSelectionType, selectionRef }) {
     setLoading(false);
   };
 
-  const cardClickHandler = (mood, genre) => {
-    console.log(mood, genre);
-    setSelectedMood(genre);
-    fetchAnimes(mood, genre);
-  };
+  useEffect(() => {
+    if (mood && genre) {
+      console.log("✅ fetching anime data.");
+      fetchAnimes(mood, genre);
+    }
+  }, [mood, genre]);
 
   const backClickHandler = () => {
-    if (!selectedMood) {
-      setSelectionType(null);
-      selectionRef.current?.scrollIntoView({ behavior: smooth });
+    if (genre) {
+      setSearchParams({ mood: mood.id });
     } else {
-      setSelectedMood(null);
+      navigate("/");
     }
   };
 
@@ -53,21 +60,23 @@ function SelectMood({ setSelectionType, selectionRef }) {
     <section className="select-mood">
       <SectionHeader
         title="Select a mood"
-        backClickHandler={backClickHandler}
+        backClickHandler={() => backClickHandler}
       />
-      {!selectedMood ? (
-        <MoodList cardClickHandler={cardClickHandler} />
+      {!mood ? (
+        <MoodList />
       ) : loading ? (
         <div id="loading-container" className="loading-container">
           <BounceLoader color="#FF477E" size={40} />
         </div>
-      ) : !loading && animes && animes.length > 0 ? (
+      ) : genre && animes && animes.length > 0 ? (
         <AnimeList animes={animes} />
       ) : (
-        <p className="search-results__no-results">No results found.</p>
+        <p className="search-results__no-results">
+          No results found. Select mood page
+        </p>
       )}
     </section>
   );
 }
 
-export default SelectMood;
+export default SelectMoodPage;

@@ -1,16 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import GenreList from "../GenreList/GenreList";
 import "./MoodList.scss";
 
-function MoodList({ cardClickHandler }) {
+function MoodList() {
   const [moods, setMoods] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedMood, setSelectedMood] = useState(null);
+
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
+    const moodFromUrl = searchParams.get("mood");
+    setSelectedMood(moodFromUrl);
+    console.log("🌐 Mood from URL updated:", moodFromUrl);
+  }, [searchParams]);
+
+  useEffect(() => {
+    console.log(
+      `mood params : ${searchParams.mood} & genre params: ${searchParams.genre}`
+    );
     const fetchMoods = async () => {
       setLoading(true);
       try {
@@ -23,24 +35,14 @@ function MoodList({ cardClickHandler }) {
       setLoading(false);
     };
     fetchMoods();
-  }, []);
+  }, []); //problem is probably here...
 
   const handleMoodClick = (mood) => {
-    if (selectedMood && selectedMood.id === mood.id) {
-      setSelectedMood(null);
-    } else {
-      console.log(selectedMood);
-      setSelectedMood(mood);
-    }
+    console.log("🖱️ Mood clicked:", mood);
+    setSearchParams({ mood: mood.id.toString() });
+    setSelectedMood(mood.id.toString());
+    console.log("🔄 Updated URL to:", `?mood=${mood.id}`);
   };
-
-  // if (!moods) {
-  //   return (
-  //     <div id="loading-container" className="loading-container">
-  //       <BounceLoader color="#FF477E" size={40} />
-  //     </div>
-  //   );
-  // }
 
   return (
     <>
@@ -51,33 +53,37 @@ function MoodList({ cardClickHandler }) {
       )}
       {!loading && moods && (
         <ul className="mood-grid">
-          {moods.map((mood) => (
-            <li
-              key={mood.id}
-              className="mood-card"
-              onClick={() => handleMoodClick(mood)}
-            >
-              <div className="mood-card__context">
-                <section className="mood-card__header">
-                  {/* <p className="mood-card__emoji">{mood.emoji}</p> */}
-                  <h3 className="mood-card__name">
-                    {mood.emoji} {mood.name}
-                  </h3>
-                </section>
-                <p className="mood-card__description">{mood.description}</p>
-              </div>
+          {moods.map((mood) => {
+            const isSelected = parseInt(selectedMood) === mood.id;
 
-              {selectedMood?.id === mood.id && (
-                <section className="genre-section">
-                  <h3 className="genre-section__title">Select a genre</h3>
-                  <GenreList
-                    selectedMood={selectedMood}
-                    cardClickHandler={cardClickHandler}
-                  />
-                </section>
-              )}
-            </li>
-          ))}
+            // ✅ Log each mood's ID and if it's selected
+            console.log("🎭 Mood ID:", mood.id);
+            console.log("🔍 Selected from URL:", selectedMood);
+            console.log("✅ Match:", isSelected);
+            return (
+              <li
+                key={mood.id}
+                className="mood-card"
+                onClick={() => handleMoodClick(mood)}
+              >
+                <div className="mood-card__context">
+                  <section className="mood-card__header">
+                    <h3 className="mood-card__name">
+                      {mood.emoji} {mood.name}
+                    </h3>
+                  </section>
+                  <p className="mood-card__description">{mood.description}</p>
+                </div>
+
+                {isSelected && (
+                  <section className="genre-section">
+                    <h3 className="genre-section__title">Select a genre</h3>
+                    <GenreList selectedMood={selectedMood} />
+                  </section>
+                )}
+              </li>
+            );
+          })}
         </ul>
       )}
 
