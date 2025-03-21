@@ -16,7 +16,7 @@ function HomePage() {
 
   const usernameSubmitHandler = (username) => {
     setIsModalOpen(false);
-    navigate("/mal", { state: { username } });
+    navigate(`/mal/${username}`);
   };
 
   return (

@@ -1,19 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
-
 import "./MALAnimeRecPage.scss";
 
 function MALAnimeRecsPage() {
-  const { state } = useLocation();
+  const { username } = useParams();
   const [loading, setLoading] = useState(false);
   const [animes, setAnimes] = useState(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const username = state?.username;
 
   const navigate = useNavigate();
 
