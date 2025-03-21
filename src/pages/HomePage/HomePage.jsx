@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <main className="home">
       <div className="home__wrapper">
-        <HeroBanner setSelectionType={setSelectionType} />
+        <HeroBanner setSelectionType={setSelectionType} showButton={true} />
         {!selectionType ? (
           <section
             id="selection-section"

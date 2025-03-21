@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 import HeroCarousel from "../HeroCarousel/HeroCarousel";
 import "./HeroBanner.scss";
 
-function HeroBanner({ setSelectionType }) {
+function HeroBanner({ setSelectionType, showButton = false }) {
   return (
     <div className="hero">
       <HeroCarousel />
@@ -14,17 +14,19 @@ function HeroBanner({ setSelectionType }) {
             picks based on your mood, past favorites, or even your favorite TV
             shows.
           </p>
-          <div className="hero__button">
-            <Link
-              to="selection-section"
-              className="hero__link"
-              smooth={true}
-              duration={500}
-              onClick={() => setSelectionType(null)}
-            >
-              Get Started
-            </Link>
-          </div>
+          {showButton && (
+            <div className="hero__button">
+              <Link
+                to="selection-section"
+                className="hero__link"
+                smooth={true}
+                duration={500}
+                onClick={() => setSelectionType(null)}
+              >
+                Get Started
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     </div>
