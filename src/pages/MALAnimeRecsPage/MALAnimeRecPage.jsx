@@ -46,7 +46,7 @@ function MALAnimeRecsPage() {
       <div className="mal-recs__wrapper">
         <HeroBanner />
         <section className="mal-recs__section">
-          <SectionHeader title="" backClickHandler={() => navigate(-1)} />
+          <SectionHeader title="For you" />
         </section>
         {loading && (
           <div id="loading-container" className="loading-container">

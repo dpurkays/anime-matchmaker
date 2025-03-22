@@ -36,7 +36,7 @@ function HottestPage() {
       <div className="hottest__wrapper">
         <HeroBanner />
         <section className="hottest__section">
-          <SectionHeader title="" backClickHandler={() => navigate(-1)} />
+          <SectionHeader />
         </section>
         {loading && (
           <div id="loading-container" className="loading-container">

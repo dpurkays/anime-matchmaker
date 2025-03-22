@@ -39,7 +39,7 @@ function AnimeDetailsPage() {
         )}
         {!loading && anime && (
           <>
-            <SectionHeader backClickHandler={() => navigate(-1)} />
+            <SectionHeader />
             <header className="anime-header">
               <img
                 src={anime.image}

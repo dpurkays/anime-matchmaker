@@ -1,6 +1,16 @@
+import { useNavigate } from "react-router";
 import "./SectionHeader.scss";
 
-function SectionHeader({ title, backClickHandler }) {
+function SectionHeader({ title }) {
+  const navigate = useNavigate();
+  const backClickHandler = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <header className="section-header">
       <div className="section-header__back-button" onClick={backClickHandler}>

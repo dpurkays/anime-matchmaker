@@ -48,7 +48,7 @@ function SearchTVPage() {
       <div className="search-tv__wrapper">
         <HeroBanner />
         <section className="search-tv__section">
-          <SectionHeader title="Search" backClickHandler={() => navigate(-1)} />
+          <SectionHeader title="Search" />
           <div className="search-tv__content">
             <div className="search-tv__content-wrapper">
               <p className="search-tv__description">

@@ -49,19 +49,12 @@ function SelectMoodPage() {
     }
   }, [mood, genre]);
 
-  const backClickHandler = () => {
-    navigate(-1);
-  };
-
   return (
     <main className="select-mood">
       <div className="select-mood__wrapper">
         <HeroBanner />
         <section className="select-mood__section">
-          <SectionHeader
-            title="Select a mood"
-            backClickHandler={backClickHandler}
-          />
+          <SectionHeader title="Select a mood" />
           {!mood ? (
             <MoodList />
           ) : loading ? (
