@@ -50,11 +50,7 @@ function SelectMoodPage() {
   }, [mood, genre]);
 
   const backClickHandler = () => {
-    if (genre) {
-      setSearchParams({ mood: mood.id });
-    } else {
-      navigate("/");
-    }
+    navigate(-1);
   };
 
   return (
@@ -64,7 +60,7 @@ function SelectMoodPage() {
         <section className="select-mood__section">
           <SectionHeader
             title="Select a mood"
-            backClickHandler={() => backClickHandler}
+            backClickHandler={backClickHandler}
           />
           {!mood ? (
             <MoodList />
