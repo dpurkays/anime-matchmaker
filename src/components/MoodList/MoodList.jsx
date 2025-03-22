@@ -35,11 +35,11 @@ function MoodList() {
       setLoading(false);
     };
     fetchMoods();
-  }, []); //problem is probably here...
+  }, []);
 
   const handleMoodClick = (mood) => {
     console.log("🖱️ Mood clicked:", mood);
-    // setSearchParams({ mood: mood.id.toString() });
+    // setSearchParams({ mood: mood.id.toString() }); <---------this breaks my code T_T
     setSelectedMood(mood.id.toString());
     console.log("🔄 Updated URL to:", `?mood=${mood.id}`);
   };

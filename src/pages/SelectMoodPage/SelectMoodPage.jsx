@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
+import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import MoodList from "../../components/MoodList/MoodList";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./SelectMoodPage.scss";
@@ -57,25 +58,30 @@ function SelectMoodPage() {
   };
 
   return (
-    <section className="select-mood">
-      <SectionHeader
-        title="Select a mood"
-        backClickHandler={() => backClickHandler}
-      />
-      {!mood ? (
-        <MoodList />
-      ) : loading ? (
-        <div id="loading-container" className="loading-container">
-          <BounceLoader color="#FF477E" size={40} />
-        </div>
-      ) : genre && animes && animes.length > 0 ? (
-        <AnimeList animes={animes} />
-      ) : (
-        <p className="search-results__no-results">
-          No results found. Select mood page
-        </p>
-      )}
-    </section>
+    <main className="select-mood">
+      <div className="select-mood__wrapper">
+        <HeroBanner />
+        <section className="select-mood__section">
+          <SectionHeader
+            title="Select a mood"
+            backClickHandler={() => backClickHandler}
+          />
+          {!mood ? (
+            <MoodList />
+          ) : loading ? (
+            <div id="loading-container" className="loading-container">
+              <BounceLoader color="#FF477E" size={40} />
+            </div>
+          ) : genre && animes && animes.length > 0 ? (
+            <AnimeList animes={animes} />
+          ) : (
+            <p className="search-results__no-results">
+              No results found. Select mood page
+            </p>
+          )}
+        </section>
+      </div>
+    </main>
   );
 }
 
