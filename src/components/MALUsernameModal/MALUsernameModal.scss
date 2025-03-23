@@ -89,15 +89,6 @@
         gap: $spacing-mobile;
     }
 
-    // &__label {
-    //     color: $muted-text-color;
-    //     font-size: 14px;
-        
-    //     @include tablet {
-    //         font-size: 16px;
-    //     }
-    // }
-
     &__input {
         width: 100%;
         padding: $spacing-mobile;
@@ -134,6 +125,7 @@
 
         &--cancel {
             background-color: $muted-text-color;
+            color: $text-color-light-bg;
 
             &:hover {
                 background-color: $secondary-bg;

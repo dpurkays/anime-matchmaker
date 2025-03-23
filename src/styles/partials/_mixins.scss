@@ -65,6 +65,7 @@
 @mixin button-style {
     padding: 0.5rem;
     background-color: $cta-color;
+    color: $primary-text;
     font-weight: $bold;
     border-radius: 5px;
     cursor: pointer;
