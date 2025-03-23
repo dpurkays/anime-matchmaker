@@ -5,7 +5,7 @@
 
 .mood-grid {
     display: grid;
-    gap: 1rem;
+    gap: $spacing-mobile;
 
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
@@ -23,21 +23,21 @@
 .mood-card {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding-top: 1rem;
+    gap: $spacing-mobile;
+    padding-top: $spacing-mobile;
     align-self: flex-start;
     @include card-style;
 
     @include tablet {}
 
     &__context {
-        padding: 1rem;
+        padding: $spacing-mobile;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem;
+        gap: $spacing-mobile-half;
+        padding: $spacing-mobile-half;
     }
 
     &__header {
@@ -45,15 +45,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: $spacing-mobile;
     }
 
     &__emoji {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     &__name {
-        font-weight: 500;
+        font-weight: $medium;
         color: $secondary-accent-color;
         @include h3-style;
     }
@@ -64,7 +64,7 @@
 }
 
 .genre-section {
-    padding: 1rem;
+    padding: $spacing-mobile;
     @include divider-line;
 
     &__title {

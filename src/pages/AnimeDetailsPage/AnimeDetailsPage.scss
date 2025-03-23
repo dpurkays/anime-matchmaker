@@ -6,25 +6,17 @@
 .anime-details-page {
    @include page-layout;
 
-   @include desktop {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-   }
-
    &__wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: $spacing-mobile;
+    @include main-wrapper-layout;
 
     @include card-style;
     &{
-        box-shadow: 0px 10px 15px rgba($primary-accent-color, 0.3);
+        box-shadow: 0 0.625rem 0.9375rem rgba($primary-accent-color, 0.3);
         cursor: auto;
         
         &:hover {
             transform: none;
-            box-shadow: 0px 10px 15px rgba($primary-accent-color, 0.3);
+            box-shadow: 0 0.625rem 0.9375rem rgba($primary-accent-color, 0.3);
         }
     }
 
@@ -39,11 +31,10 @@
 }
 
 .anime-header {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: $spacing-mobile 0;
-    
+    @include section-layout;
+    &{
+        padding: $spacing-mobile 0;
+    }
     @include tablet {
         flex-direction: row;
     }
@@ -59,7 +50,7 @@
 .anime-info {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: $spacing-mobile-quarter;
     padding: $spacing-mobile 0;
 
     @include tablet {
@@ -68,7 +59,7 @@
 
     &__title {
         color: $primary-accent-color;
-        padding: 0.25rem 0;
+        padding: $spacing-mobile-quarter 0;
         @include h2-style;
 
         @include tablet {
@@ -80,8 +71,8 @@
 .anime-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 0.25rem 0;
+    gap: $spacing-mobile-half;
+    padding: $spacing-mobile-quarter 0;
     &__badge {
         @include badge-style;
     }
@@ -89,8 +80,8 @@
 
 .anime-buttons {
     display: flex;
-    padding: 1rem 0;
-    gap: 1rem;
+    padding: $spacing-mobile 0;
+    gap: $spacing-mobile;
     &__button {
         @include button-style;
     }
@@ -99,21 +90,21 @@
 .anime-description {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: $spacing-mobile;
 
     &__synopsis-title {
         @include h3-style;
         @include tablet {
-            padding-top: 1rem;
+            padding-top: $spacing-mobile;
         }
     }
 }
 
 .anime-genres {
-    padding: 1rem 0;
+    padding: $spacing-mobile 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: $spacing-mobile-half;
     &__badge {
         @include badge-style;
     }
@@ -124,7 +115,7 @@
     flex-direction: column;
 
     &__title {
-        padding-bottom: 1rem;
+        padding-bottom: $spacing-mobile;
         @include h3-style;
     
     }
@@ -132,7 +123,7 @@
     &__text-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
+        gap: $spacing-mobile-half;
 
     }
 }
@@ -140,8 +131,8 @@
 .anime-trailer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 0;
+    gap: $spacing-mobile;
+    padding: $spacing-mobile 0;
     &__title {
         @include h3-style;
     }

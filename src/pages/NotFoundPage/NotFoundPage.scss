@@ -6,20 +6,16 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    gap: 1rem;
+    gap: $spacing-mobile;
     @include page-layout;
 
     &__title {
         @include h1-style;
     }
 
-    &__text {
-
-    }
 
     &__img {
-        border-radius: 0.625rem;
+        border-radius: $border-radius-medium;
         width: 50vh;
-        
     }
 }

@@ -3,24 +3,12 @@
 @use "../../styles/partials/fonts" as *;
 
 .select-mood {
-    @include desktop {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     &__wrapper {
-        display: flex;
-        flex-direction: column;
-        padding: 0 $spacing-mobile;
-
+        @include main-wrapper-layout
     }
 
     &__section {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-mobile;
         @include divider-line;
-        @include page-layout;
+        @include section-layout;
     }
 }

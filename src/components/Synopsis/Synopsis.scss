@@ -6,7 +6,7 @@
     
     &__read-more {
         background-color: $secondary-bg;
-        font-weight: 700;
+        font-weight: $bold;
         cursor: pointer;
 
         &:hover {

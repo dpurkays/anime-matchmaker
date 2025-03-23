@@ -47,7 +47,9 @@ function HottestPage() {
           </section>
         )}
         {!loading && !animes && (
-          <p className="hottest__no-results">No results found.</p>
+          <p className="hottest__no-results">
+            No results found. Try again later.
+          </p>
         )}
       </div>
     </main>

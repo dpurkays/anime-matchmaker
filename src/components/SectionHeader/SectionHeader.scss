@@ -15,13 +15,13 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 0.25rem;
+        gap: $spacing-mobile-quarter;
         cursor: pointer;
     }
 
     &__back-icon {
-        width: 24px;
-        height: 24px;
+        width: 1.5rem;
+        height: 1.5rem;
         fill: $primary-accent-color;
     }
 

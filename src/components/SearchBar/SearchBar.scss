@@ -15,7 +15,7 @@
         width: 90%;
 
         @include tablet{
-            max-width: 300px;
+            max-width: 18.75rem;
             gap: $spacing-tablet
         }
 
@@ -29,16 +29,16 @@
 
     &__icon {
         fill: $secondary-accent-color;
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
         position: absolute;
-        left: 10px;
+        left: 0.625rem;
         top: 25%;
 
         @include tablet {
-            height: 24px;
-            width: 24px;
-            left: 9px;
+            height: 1.5rem;
+            width: 1.5rem;
+            left: 0.5625rem;
         }
     }
 
@@ -47,12 +47,12 @@
         outline: none;
         background-color: $secondary-bg;
         color: $primary-text;
-        padding: 0.5rem;
+        padding: $spacing-mobile-half;
         padding-left: 2rem;
-        border-radius: 50px;
+        border-radius: 3.125rem;
         width: 100%;
         font-size: inherit;
-        box-shadow: 0px 4px 8px rgba($secondary-accent-color, 0.2);
+        box-shadow: 0 0.25rem 0.5rem rgba($secondary-accent-color, 0.2);
 
         @include tablet {
             padding: 0.65rem;
@@ -62,16 +62,16 @@
 
         &::placeholder {
             color: $muted-text-color;
-            font-size: 12px;
+            font-size: 0.75rem;
 
             @include tablet {
-                font-size: 14px;
+                font-size: 0.875rem;
             }
         }
 
         &:active,
         &:focus {
-            box-shadow: 0px 4px 8px rgba($primary-accent-color, 0.2);
+            box-shadow: 0 0.25rem 0.5rem rgba($primary-accent-color, 0.2);
         }
 
     }

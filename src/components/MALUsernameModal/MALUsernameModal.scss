@@ -23,7 +23,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba($primary-bg, 0.6);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(0.75rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,22 +37,22 @@
     flex-direction: column;
     gap: $spacing-mobile;
     background-color: $primary-bg;
-    border-radius: 16px;
+    border-radius: $border-radius-XLarge;
     padding: 2rem;
     width: 90%;
-    max-width: 450px;
-    box-shadow: 0 10px 25px rgba($primary-bg, 0.3);
+    max-width: 28.125rem;
+    box-shadow: 0 0.625rem 1.5625rem rgba($primary-bg, 0.3);
     position: fixed;
     z-index: 10000;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn $animation-duration ease-in-out;
 
     &__cancel-svg {
-        width: 24px;
-        height: 24px;
+        width: 1.5rem;
+        height: 1.5rem;
         fill: $primary-text;
         cursor: pointer;
     }
@@ -62,24 +62,24 @@
         align-items: center;
         background-color: $primary-accent-color;
         padding: $spacing-mobile;
-        border-top-left-radius: 16px;
-        border-top-right-radius: 16px;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
         margin: -2rem -2rem $spacing-mobile -2rem;
 
     }
     &__title {
         @include h2-style;
         & {
-            font-weight: 700;
+            font-weight: $bold;
             font-family: "Nunito", sans-serif;
         }
     }
 
     &__description {
-        font-size: 14px;
+        font-size: 0.875rem;
         
         @include tablet {
-            font-size: 16px;
+            font-size: 1rem;
         }
     }
 
@@ -96,20 +96,20 @@
         font-size: inherit;
         background-color: $secondary-bg;
         color: $primary-text;
-        box-shadow: 0px 4px 8px rgba($secondary-accent-color, 0.2);
+        box-shadow: 0 0.25rem 0.5rem rgba($secondary-accent-color, 0.2);
 
         &::placeholder {
             color: $muted-text-color;
-            font-size: 12px;
+            font-size: 0.75rem;
     
             @include tablet {
-                font-size: 14px;
+                font-size: 0.875rem;
             }
         }
 
         &:active,
         &:focus {
-            box-shadow: 0px 4px 8px rgba($primary-accent-color, 0.2);
+            box-shadow: 0 0.25rem 0.5rem rgba($primary-accent-color, 0.2);
         }
     }
 

@@ -4,24 +4,12 @@
 
 
 .mal-recs {
-    @include desktop {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     &__wrapper {
-        display: flex;
-        flex-direction: column;
-        padding: 0 $spacing-mobile;
-
+       @include main-wrapper-layout;
     }
 
     &__section {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-mobile;
-        @include page-layout;
+        @include section-layout;
 
         &:first-of-type {
             @include divider-line;
@@ -29,10 +17,8 @@
     }
 
     &__actions {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        @include section-layout;
 
         @include tablet {
             flex-direction: row;
@@ -67,10 +53,8 @@
 }
 
 .personal-recs {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    @include page-layout;
+    @include section-layout;
+    
     &{
         padding-top: 0;
     }
