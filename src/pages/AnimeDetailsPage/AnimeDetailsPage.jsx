@@ -108,7 +108,6 @@ function AnimeDetailsPage() {
             </section>
             <section id="anime-trailer" className="anime-trailer">
               <h3 className="anime-trailer__title">Trailer</h3>
-              {console.log(anime.youtube_id)}
               <TrailerVideo
                 videoId={anime.youtube_id}
                 animeName={anime.title_english}

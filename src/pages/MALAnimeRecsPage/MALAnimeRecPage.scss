@@ -23,10 +23,6 @@
         gap: $spacing-mobile;
         @include divider-line;
         @include page-layout;
-
-        // @include tablet {
-        //     gap: $spacing-tablet;
-        // }
     }
 }
 

@@ -81,11 +81,6 @@
         border: none;
         font-size: inherit;
         @include button-style;
-
-        @include tablet {
-            // align-self: center;
-        }
-
     }
 
 }

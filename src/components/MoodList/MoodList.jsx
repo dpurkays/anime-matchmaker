@@ -16,21 +16,16 @@ function MoodList() {
   useEffect(() => {
     const moodFromUrl = searchParams.get("mood");
     setSelectedMood(moodFromUrl);
-    console.log("🌐 Mood from URL updated:", moodFromUrl);
   }, [searchParams]);
 
   useEffect(() => {
-    console.log(
-      `mood params : ${searchParams.mood} & genre params: ${searchParams.genre}`
-    );
     const fetchMoods = async () => {
       setLoading(true);
       try {
         const response = await axios.get(`${backendUrl}/api/moods`);
-        // console.log(response);
         setMoods(response.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
       setLoading(false);
     };
@@ -38,10 +33,7 @@ function MoodList() {
   }, []);
 
   const handleMoodClick = (mood) => {
-    console.log("🖱️ Mood clicked:", mood);
-    // setSearchParams({ mood: mood.id.toString() }); <---------this breaks my code T_T
     setSelectedMood(mood.id.toString());
-    console.log("🔄 Updated URL to:", `?mood=${mood.id}`);
   };
 
   return (
@@ -51,11 +43,6 @@ function MoodList() {
         <ul className="mood-grid">
           {moods.map((mood) => {
             const isSelected = parseInt(selectedMood) === mood.id;
-
-            // ✅ Log each mood's ID and if it's selected
-            console.log("🎭 Mood ID:", mood.id);
-            console.log("🔍 Selected from URL:", selectedMood);
-            console.log("✅ Match:", isSelected);
             return (
               <li
                 key={mood.id}
