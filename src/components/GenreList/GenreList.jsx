@@ -40,7 +40,7 @@ function GenreList({ selectedMood }) {
 
   return (
     <ul className="genre-section__list">
-      {genres.map((genre) => (
+      {genres?.map((genre) => (
         <li
           key={genre.id}
           className="genre-card"

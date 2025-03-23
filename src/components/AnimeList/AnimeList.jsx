@@ -5,6 +5,7 @@ function AnimeList({ animes, source }) {
   const [hoveredCard, setHoveredCard] = useState(null);
   const navigate = useNavigate();
 
+  console.log(animes);
   return (
     <ul className="anime-grid">
       {animes.map((anime) => (
