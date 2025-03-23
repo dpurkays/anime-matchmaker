@@ -118,7 +118,7 @@ function AnimeDetailsPage() {
         )}
 
         {!loading && !anime && (
-          <p className="search-results__no-results">
+          <p className="anime-details__no-results">
             Couldn't get anime info, try again later.
           </p>
         )}

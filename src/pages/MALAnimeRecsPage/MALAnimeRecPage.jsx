@@ -55,7 +55,7 @@ function MALAnimeRecsPage() {
         )}
 
         {!loading && username && !animes && (
-          <p className="search-results__no-results">No results found.</p>
+          <p className="mal-recs__no-results">No results found.</p>
         )}
       </div>
     </main>

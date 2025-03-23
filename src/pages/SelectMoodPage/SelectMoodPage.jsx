@@ -58,7 +58,7 @@ function SelectMoodPage() {
           ) : genre && animes && animes.length > 0 ? (
             <AnimeList animes={animes} />
           ) : (
-            <p className="search-results__no-results">
+            <p className="select-mood__no-results">
               No results found. Select mood page
             </p>
           )}

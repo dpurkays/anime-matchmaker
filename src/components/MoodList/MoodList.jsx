@@ -84,7 +84,7 @@ function MoodList() {
       )}
 
       {!loading && !moods && (
-        <p className="no-results">No moods found, try again later.</p>
+        <p className="mood__no-results">No moods found, try again later.</p>
       )}
     </>
   );
