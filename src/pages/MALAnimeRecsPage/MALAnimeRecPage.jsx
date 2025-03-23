@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import MALUsernameModal from "../../components/MALUsernameModal/MALUsernameModal";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./MALAnimeRecPage.scss";
 
@@ -11,6 +12,8 @@ function MALAnimeRecsPage() {
   const { username } = useParams();
   const [loading, setLoading] = useState(false);
   const [animes, setAnimes] = useState(null);
+  const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
@@ -22,7 +25,21 @@ function MALAnimeRecsPage() {
         `${backendUrl}/api/recommendations/mal?malUsername=${username}`
       );
       setAnimes(response.data);
+      setError(null);
     } catch (error) {
+      if (error.response?.status === 404) {
+        if (error.response.data?.error === "MAL user not found") {
+          setError(`Username ${username} doesn't exist. Try again.`);
+          setAnimes(null);
+          setShowModal(true);
+        } else {
+          console.error(
+            `No anime found in ${username}'s favorites or watch history.`
+          );
+          setError(error.response.data.error);
+          setAnimes(null);
+        }
+      }
       console.error("Error fetching anime recommendations: ", error);
     }
     setLoading(false);
@@ -58,6 +75,17 @@ function MALAnimeRecsPage() {
           <p className="mal-recs__no-results">No results found.</p>
         )}
       </div>
+      {showModal && (
+        <MALUsernameModal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          onUsernameSubmit={(newUsername) => {
+            setShowModal(false);
+            navigate(`/mal/${newUsername}`);
+          }}
+          errorMessage={error}
+        />
+      )}
     </main>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./MALUsernameModal.scss";
 
-function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
+function MALUsernameModal({ isOpen, onClose, onUsernameSubmit, errorMessage }) {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
@@ -36,6 +36,9 @@ function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
         </svg>
       </header>
 
+      {errorMessage && (
+        <div className="mal-modal__error">⚠️ {errorMessage}</div>
+      )}
       <p className="mal-modal__description">
         Share your MyAnimeList username for personalized anime recommendations
         based on what you already watched!
