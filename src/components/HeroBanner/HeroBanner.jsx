@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 import HeroCarousel from "../HeroCarousel/HeroCarousel";
 import "./HeroBanner.scss";
 
-function HeroBanner({ setSelectionType, showButton = false }) {
+function HeroBanner({ showButton = false }) {
   return (
     <div className="hero">
       <HeroCarousel />
@@ -21,7 +21,6 @@ function HeroBanner({ setSelectionType, showButton = false }) {
                 className="hero__link"
                 smooth={true}
                 duration={500}
-                onClick={() => setSelectionType(null)}
               >
                 Get Started
               </Link>

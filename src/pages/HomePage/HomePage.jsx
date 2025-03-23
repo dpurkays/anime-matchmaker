@@ -6,7 +6,6 @@ import MALUsernameModal from "../../components/MALUsernameModal/MALUsernameModal
 import "./HomePage.scss";
 
 function HomePage() {
-  const [selectionType, setSelectionType] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const selectionRef = useRef(null);
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ function HomePage() {
   return (
     <main className="home">
       <div className="home__wrapper">
-        <HeroBanner setSelectionType={setSelectionType} showButton={true} />
+        <HeroBanner showButton={true} />
         <section
           id="selection-section"
           ref={selectionRef}

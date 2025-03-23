@@ -20,14 +20,17 @@ function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setfade] = useState(true);
   const [carouselImages, setCarouselImages] = useState([...fallbackImages]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchHottestAnime = async () => {
       const cachedHottest = sessionStorage.getItem("hottestAnime");
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
       if (cachedHottest) {
         const hottestAnime = JSON.parse(cachedHottest);
+        console.log("Cached", hottestAnime);
         const animeData = hottestAnime
           .slice(0, 5)
           .map((anime) => ({
@@ -43,10 +46,13 @@ function HeroCarousel() {
       }
 
       try {
-        const response = await axios.get("/api/seasons/hottest");
+        const response = await axios.get(
+          `${backendUrl}/api/anime/seasons/hottest`
+        );
         const hottestAnime = response.data;
         if (hottestAnime.length > 0) {
           sessionStorage.setItem("hottestAnime", JSON.stringify(hottestAnime));
+          console.log("Response", hottestAnime);
           const animeData = hottestAnime
             .slice(0, 5)
             .map((anime) => ({
