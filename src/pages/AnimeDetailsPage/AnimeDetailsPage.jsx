@@ -94,7 +94,7 @@ function AnimeDetailsPage() {
                 </p>
                 <p className="anime-details__text">
                   <b>Aired: </b>
-                  {anime.year}
+                  {anime.year || anime.aired}
                 </p>
                 <p className="anime-details__text">
                   <b>Studio: </b>
