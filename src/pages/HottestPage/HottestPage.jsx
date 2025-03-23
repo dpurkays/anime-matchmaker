@@ -20,7 +20,8 @@ function HottestPage() {
       const response = await axios.get(
         `${backendUrl}/api/anime/seasons/hottest`
       );
-      setAnimes(response.data);
+      const hottestAnime = response.data;
+      setAnimes(hottestAnime);
     } catch (error) {
       console.error("Error fetching anime recommendations: ", error);
     }
@@ -48,7 +49,7 @@ function HottestPage() {
             <h3 className="hottest-results__title">
               This season's hottest animes
             </h3>
-            <AnimeList animes={animes} source="recommendations" />
+            <AnimeList animes={animes} />
           </section>
         )}
         {!loading && !animes && (

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import MALUsernameModal from "../../components/MALUsernameModal/MALUsernameModal";
@@ -11,8 +11,6 @@ function HomePage() {
   const selectionRef = useRef(null);
   const navigate = useNavigate();
 
-  useEffect(() => {}, [selectionType]);
-
   const usernameSubmitHandler = (username) => {
     setIsModalOpen(false);
     navigate(`/mal/${username}`);
@@ -21,7 +19,7 @@ function HomePage() {
   return (
     <main className="home">
       <div className="home__wrapper">
-        <HeroBanner setSelectionType={setSelectionType} />
+        <HeroBanner setSelectionType={setSelectionType} showButton={true} />
         <section
           id="selection-section"
           ref={selectionRef}
