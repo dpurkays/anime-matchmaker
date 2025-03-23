@@ -58,7 +58,7 @@ function HomePage() {
         onUsernameSubmit={usernameSubmitHandler}
         onClose={() => {
           setIsModalOpen(false);
-          navigate("/seasons/hottest");
+          navigate("/");
         }}
       />
     </main>
