@@ -35,12 +35,13 @@ function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
           <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
         </svg>
       </header>
+
       <p className="mal-modal__description">
         Share your MyAnimeList username for personalized anime recommendations
         based on what you already watched!
       </p>
+
       <form onSubmit={submitHandler} className="mal-modal__form">
-        {/* <label className="mal-modal__label">MyAnimeList Username </label> */}
         <input
           type="text"
           className="mal-modal__input"
@@ -64,10 +65,8 @@ function MALUsernameModal({ isOpen, onClose, onUsernameSubmit }) {
         </div>
       </form>
 
-      {/* Separator */}
       <div className="mal-modal__divider">or</div>
 
-      {/* Footer message */}
       <footer className="mal-modal__footer">
         <p className="mal-modal__description">
           Don't have a MyAnimeList account?

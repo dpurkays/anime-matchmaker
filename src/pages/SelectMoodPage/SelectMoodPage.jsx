@@ -32,7 +32,6 @@ function SelectMoodPage() {
           params: { jikan_genre_ids: jikan_genre_ids.join(",") },
         }
       );
-      console.log("fetch anime by mood", animeResponse.data);
       setAnimes(animeResponse.data);
     } catch (error) {
       console.error(error);
@@ -42,7 +41,6 @@ function SelectMoodPage() {
 
   useEffect(() => {
     if (mood && genre) {
-      console.log("✅ fetching anime data.");
       fetchAnimes(mood, genre);
     }
   }, [mood, genre]);

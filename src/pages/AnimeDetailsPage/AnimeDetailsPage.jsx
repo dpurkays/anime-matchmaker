@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { Link } from "react-scroll";
 import BounceLoader from "react-spinners/BounceLoader";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
@@ -13,7 +13,6 @@ function AnimeDetailsPage() {
   const [anime, setAnime] = useState(null);
   const [loading, setLoading] = useState(true);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAnime = async () => {

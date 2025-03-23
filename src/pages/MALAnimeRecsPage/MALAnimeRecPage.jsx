@@ -11,15 +11,11 @@ function MALAnimeRecsPage() {
   const { username } = useParams();
   const [loading, setLoading] = useState(false);
   const [animes, setAnimes] = useState(null);
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
 
   const fetchAnimes = async (username) => {
-    console.log(
-      `🔄 Fetching anime recommendations for ${username} at ${new Date().toISOString()}`
-    );
-
     setLoading(true);
     try {
       const response = await axios.get(
@@ -33,7 +29,6 @@ function MALAnimeRecsPage() {
   };
 
   useEffect(() => {
-    console.log("MALAnimeRecsPage Mounted");
     if (username) {
       fetchAnimes(username);
     } else {

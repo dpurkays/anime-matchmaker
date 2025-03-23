@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
@@ -13,7 +13,7 @@ function SearchTVPage() {
   const [animes, setAnimes] = useState(null);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
+
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const query = searchParams.get("query");
 

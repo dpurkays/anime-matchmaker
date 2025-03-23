@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
@@ -9,7 +8,6 @@ import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./HottestPage.scss";
 
 function HottestPage() {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [animes, setAnimes] = useState(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;

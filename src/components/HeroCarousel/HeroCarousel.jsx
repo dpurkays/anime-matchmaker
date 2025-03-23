@@ -30,7 +30,6 @@ function HeroCarousel() {
 
       if (cachedHottest) {
         const hottestAnime = JSON.parse(cachedHottest);
-        console.log("Cached", hottestAnime);
         const animeData = hottestAnime
           .slice(0, 5)
           .map((anime) => ({
@@ -52,7 +51,6 @@ function HeroCarousel() {
         const hottestAnime = response.data;
         if (hottestAnime.length > 0) {
           sessionStorage.setItem("hottestAnime", JSON.stringify(hottestAnime));
-          console.log("Response", hottestAnime);
           const animeData = hottestAnime
             .slice(0, 5)
             .map((anime) => ({
@@ -88,10 +86,7 @@ function HeroCarousel() {
   }, [currentIndex]);
 
   return (
-    <div
-      className="carousel"
-      // onClick={() => handleImageClick(carouselImages[currentIndex].mal_id)}
-    >
+    <div className="carousel">
       <img
         className={`carousel__image ${
           fade ? "carousel__image--fade-in" : "carousel__image--fade-out"
