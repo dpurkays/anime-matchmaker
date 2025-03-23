@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import BounceLoader from "react-spinners/BounceLoader";
 import GenreList from "../GenreList/GenreList";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./MoodList.scss";
 
 function MoodList() {
@@ -46,11 +46,7 @@ function MoodList() {
 
   return (
     <>
-      {loading && (
-        <div id="loading-container" className="loading-container">
-          <BounceLoader color="#FF477E" size={40} />
-        </div>
-      )}
+      {loading && <LoadingSpinner />}
       {!loading && moods && (
         <ul className="mood-grid">
           {moods.map((mood) => {

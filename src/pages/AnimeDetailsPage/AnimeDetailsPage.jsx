@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-scroll";
-import BounceLoader from "react-spinners/BounceLoader";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import Synopsis from "../../components/Synopsis/Synopsis";
 import TrailerVideo from "../../components/TrailerVideo/TrailerVideo";
@@ -31,11 +31,7 @@ function AnimeDetailsPage() {
   return (
     <main className="anime-details-page">
       <div className="anime-details-page__wrapper">
-        {loading && (
-          <div id="loading-container" className="loading-container">
-            <BounceLoader color="#FF477E" size={40} />
-          </div>
-        )}
+        {loading && <LoadingSpinner />}
         {!loading && anime && (
           <>
             <SectionHeader />

@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import "./SearchTVPage.scss";
 
 function SearchTVPage() {
@@ -63,11 +63,7 @@ function SearchTVPage() {
           </div>
         </section>
 
-        {loading && (
-          <div id="loading-container" className="loading-container">
-            <BounceLoader color="#FF477E" size={40} />
-          </div>
-        )}
+        {loading && <LoadingSpinner />}
         {query && !loading && animes && (
           <section className="search-results">
             <h3 className="search-results__title">Results for {query}</h3>

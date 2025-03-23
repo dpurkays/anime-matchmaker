@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import "./HottestPage.scss";
 
 function HottestPage() {
@@ -37,11 +37,7 @@ function HottestPage() {
         <section className="hottest__section">
           <SectionHeader />
         </section>
-        {loading && (
-          <div id="loading-container" className="loading-container">
-            <BounceLoader color="#FF477E" size={40} />
-          </div>
-        )}
+        {loading && <LoadingSpinner />}
         {!loading && animes && (
           <section className="hottest-results">
             <h3 className="hottest-results__title">

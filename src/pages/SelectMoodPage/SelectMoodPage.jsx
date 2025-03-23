@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import MoodList from "../../components/MoodList/MoodList";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./SelectMoodPage.scss";
@@ -54,9 +54,7 @@ function SelectMoodPage() {
           {!mood ? (
             <MoodList />
           ) : loading ? (
-            <div id="loading-container" className="loading-container">
-              <BounceLoader color="#FF477E" size={40} />
-            </div>
+            <LoadingSpinner />
           ) : genre && animes && animes.length > 0 ? (
             <AnimeList animes={animes} />
           ) : (

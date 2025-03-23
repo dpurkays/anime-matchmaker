@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import BounceLoader from "react-spinners/BounceLoader";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./MALAnimeRecPage.scss";
 
@@ -43,11 +43,7 @@ function MALAnimeRecsPage() {
         <section className="mal-recs__section">
           <SectionHeader title="For you" />
         </section>
-        {loading && (
-          <div id="loading-container" className="loading-container">
-            <BounceLoader color="#FF477E" size={40} />
-          </div>
-        )}
+        {loading && <LoadingSpinner />}
 
         {!loading && username && animes && (
           <section className="personal-recs">
