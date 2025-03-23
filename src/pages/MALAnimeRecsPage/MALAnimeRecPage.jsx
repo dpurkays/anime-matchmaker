@@ -13,6 +13,7 @@ function MALAnimeRecsPage() {
   const [loading, setLoading] = useState(false);
   const [animes, setAnimes] = useState(null);
   const [error, setError] = useState(null);
+  const [modalError, setModalError] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -29,14 +30,13 @@ function MALAnimeRecsPage() {
     } catch (error) {
       if (error.response?.status === 404) {
         if (error.response.data?.error === "MAL user not found") {
-          setError(`Username ${username} doesn't exist. Try again.`);
+          setModalError(`Username ${username} doesn't exist. Try again.`);
           setAnimes(null);
           setShowModal(true);
         } else {
-          console.error(
-            `No anime found in ${username}'s favorites or watch history.`
+          setError(
+            `Looks like ${username} hasn’t saved any anime just yet. Want to try a different username or explore anime by mood or similar shows?`
           );
-          setError(error.response.data.error);
           setAnimes(null);
         }
       }
@@ -71,8 +71,36 @@ function MALAnimeRecsPage() {
           </section>
         )}
 
-        {!loading && username && !animes && (
-          <p className="mal-recs__no-results">No results found.</p>
+        {!loading && username && !animes && error && (
+          <section className="mal-recs__section">
+            <p className="mal-recs__text">{error}</p>
+            <div className="mal-recs__actions">
+              <div
+                onClick={() => setShowModal(true)}
+                className="mal-recs__button"
+              >
+                Try another username
+              </div>
+              <div
+                onClick={() => navigate("/moods")}
+                className="mal-recs__button mal-recs__button--secondary"
+              >
+                Explore by mood
+              </div>
+              <div
+                onClick={() => navigate("/tv")}
+                className="mal-recs__button mal-recs__button--secondary"
+              >
+                Explore by show
+              </div>
+              <div
+                className="mal-recs__button mal-recs__button--secondary"
+                onClick={() => navigate("/seasons/hottest")}
+              >
+                Season's Hottest
+              </div>
+            </div>
+          </section>
         )}
       </div>
       {showModal && (
@@ -81,9 +109,10 @@ function MALAnimeRecsPage() {
           onClose={() => setShowModal(false)}
           onUsernameSubmit={(newUsername) => {
             setShowModal(false);
+            setModalError(null);
             navigate(`/mal/${newUsername}`);
           }}
-          errorMessage={error}
+          errorMessage={modalError}
         />
       )}
     </main>
