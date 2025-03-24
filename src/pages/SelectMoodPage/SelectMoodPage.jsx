@@ -27,10 +27,7 @@ function SelectMoodPage() {
       const { jikan_genre_ids } = genreResponse.data;
 
       const animeResponse = await axios.get(
-        `${backendUrl}/api/recommendations/anime-mood`,
-        {
-          params: { jikan_genre_ids: jikan_genre_ids.join(",") },
-        }
+        `${backendUrl}/api/recommendations/mood/${jikan_genre_ids.join(",")}`
       );
       setAnimes(animeResponse.data);
     } catch (error) {
