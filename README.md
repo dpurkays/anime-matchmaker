@@ -1,155 +1,345 @@
 # Anime Matchmaker 💖
 
+A personalized anime recommender connecting you to shows you'll love through tailored suggestions.
+
 ## Overview
 
 Anime Matchmaker is a web application that helps users discover new anime based on their mood, watch history and personalized preference. By leveraging AI-powered recommendations. the app suggests anime titles tailored to each user's taste.
 
 ### Problem Space
 
-Finding the right anime can be overwhelming due to the large volume of anime. While most recommendations rely on basic genre filtering, google searches or even just watching the latest hotest anime, leaving many undiscovered.
+Finding the right anime can be overwhelming due to the large volume of anime. While most recommendations rely on basic genre filtering, google searches or even just watching the latest hottest anime, leaving many undiscovered.
 
 ### User Profile
 
 - **Anime Enthusiasts:** Users who would want better recommendations beyond simple genre-based filtering
-- **Casual Viewers:** Users looking for animes that matches their mood, whether its action-packed, romcom, or wholesome romance.
+- **Casual Viewers:** Users looking for animes that matches their mood, whether it's action-packed, romcom, or wholesome romance.
 - **New to Anime**: Users who are unfamiliar to anime and need guidance based on their favorite movies or tv shows.
 
 ### Features
 
-✅- **Mood-Based Anime Search:** Users select a mood (e.g. "Chill & Relaxing", "High-Energy Action Packed") to get anime suggestions.
-
+- **Mood-Based Anime Search:** Users select a mood (e.g. "Chill & Relaxing", "High-Energy Action Packed") to get anime suggestions.
 - **AI powered recommendations:** Uses Gemini AI to analyse a user's watch list history and suggest relevant anime suggestions.
-  🏗️- **Movie/TV show-based recommendations:** New users can enter a favorite Movie or TV show, and the app suggests similar anime.
-- **Users Watch List & History:** Tracks what the users have watched or what they plan on watching
+
+  > _Note: "Watch list history" refers to the user’s public favorites or watch history list visible on their MyAnimeList profile._
+
+- **Movie/TV show-based recommendations:** New users can enter a favorite Movie or TV show, and the app suggests similar anime.
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone this repo and server side repo: [Anime Matchmaker Server Repo](https://github.com/dpurkays/anime-matchmaker-server)
+2. Install dependencies and create env
+
+   Do the following in both folders (anime-matchmaker and anime-matchmaker-server):
+
+   i. npm install
+
+   ii. Create an `env` file. Look at `.sample.env` for details on what env variables you'll need
+
+3. Run the app by doing `npm run dev`
 
 ## Implementation
 
 ### Tech Stack
 
 - React
+- Sass
 - Node
-- MySQL
 - Client Libraries:
   - react
   - react-router
-  - axios
   - react-spinners
+  - react-scroll
+  - axios
 - Server Libraries:
-  - knex
   - express
-  - bcrypt
   - dotenv
-  - uuid
+  - axios
+  - node-cache
+  - bottleneck
 
 ### APIs
 
 - Gemini API - https://ai.google.dev/api?lang=node
+  - Gemini API is used to generate anime recommendations based on natural language input such as a user’s favorites/watch-history list, or favorite tv shows/movies.
 - Jikan API - https://docs.api.jikan.moe/
+  - unofficial api for MyAnimeList (MAL)
 
 ### Sitemap
 
-- **Home Page:** Entry point with options to search anime by mood, AI input
-  - **Mood Based Search:** Users selects a mood and AI generated recommendations appears
-  - **AI powered Search:** Users enter a desscription
-- **Anime Details Page:** Displays anime metadata such as Title, genre, synopsis,
-- **User Profile:** shows users watch history and watch list
+- **Home Page:** Entry point with options to search anime by mood, based on TV show/movie, based on user's watch history or season's hottest.
+  - Recommendations Selection
+    - **Mood Based Search:** Users selects a mood and genre to get anime recommendations
+      - **Anime Details Page**
+    - **Based TV series or Movie:** Users inputs a TV show or movie to get similar animes.
+      - **Anime Details Page**
+    - **Based on MAL user:** Users gets recommendations based on their MAL's favorites or watch history.
+      - **Anime Details Page**
+    - **Season's Hottest Anime:** Users gets the most popular anime from the current season.
+      - **Anime Details Page**
+- **Anime Details Page:** Displays anime metadata such as title, genre, synopsis, trailer and other metadata.
+- **Not Found Page:** For non existing pages.
 
 ### Data
 
-| Table Name    | Columns                           |
-| ------------- | --------------------------------- |
-| users         | id, email, password, created_at   |
-| anime         | id, title, genre, synopsis, image |
-| watch_history | id, user_id (fk), anime_id (fk)   |
-| watch_list    | id, user_id (fk), anime_id (fk)   |
+**data/moods.json** ➡️ stores general moods and genres.
+
+```
+[
+  {
+    "id": 1,
+    "name": "Chill & Relaxed",
+    "color": "#4fc3f7",
+    "emoji": "🌴",
+    "description": "Calm and peaceful anime that bring a sense of relaxation.",
+    "genres": [
+      { "id": 1, "name": "Slice of Life", "description": "Everyday life stories with a calming pace.", "jikan_genre_ids": [36] },
+      { "id": 2, "name": "Romance", "description": "Sweet love stories filled with warmth.", "jikan_genre_ids": [22, 74] },
+      { "id": 3, "name": "Iyashikei", "description": "Soothing, healing anime that bring comfort.", "jikan_genre_ids": [63] }
+    ]
+  },
+  ...
+]
+```
 
 ### Endpoints
 
-**GET :id/watch-list**
+#### **GET api/moods/**
 
-- Gets users' watch list
+- Gets all moods
+- Will return 500 for error retrieving moods
+- If successfull, returns a 200 status code
 
-example request: `GET /1/watch-list`
-
-- response 404 if user id is not found
-- response 200 if successful
-
-example response:
+**Response Body Example**
 
 ```
 [
-    {
-      "anime_id": e3a45678-12d3-4f56-b789-0a12b3c4d5e6,
-      "title": "One Punch Man",
-      "image_url": "https://cdn.myanimelist.net/images/anime/12/76049.jpg"
-    },
-    {
-      "anime_id": 9f1c2b34-5678-4abc-def0-123456789abc,
-      "title": "Naruto",
-      "image_url": "https://cdn.myanimelist.net/images/anime/1141/142503.jpg"
-    }
+  {
+      "id": 1,
+      "name": "Chill & Relaxed",
+      "color": "#4fc3f7",
+      "emoji": "🌴",
+      "description": "Calm and peaceful anime that bring a sense of relaxation."
+  },
+  ...
 ]
 ```
 
-**GET :id/watch-history**
+#### **GET api/moods/:id/genres**
 
-- Gets users' watch history
+- Gets all genres based on mood
+- Will return 404 if mood doesn't exist
+- Will return 500 for error retrieving genres
+- If successfull, returns a 200 status code
 
-example request: `GET /1/watch-history`
-
-- response 404 if user id is not found
-- response 200 if successful
-
-example response:
-
-```
-[
-    {
-      "anime_id": a12b3c4d-5e6f-7g89-0123-4h5i6789j0kl,
-      "title": "Shinseiki Evangelion",
-      "image_url": "https://cdn.myanimelist.net/images/anime/1314/108941.jpg"
-    },
-    {
-      "anime_id": 5d4c3b2a-1e0f-9876-5432-1a2b3c4d5e6f,
-      "title": "Cowboy Bebop",
-      "image_url": "https://cdn.myanimelist.net/images/anime/4/19644.jpg"
-    }
-]
-```
-
-**POST :id/watch-list**
-
-- add anime to watch list
-  - list that the user would like to watch
-
-example request: `POST /1/watch-list`
-
-- response 400 if unsuccessful
-- response 201 if successful
+**Response Body Example**
 
 ```
 {
-    "anime_id": 789abc12-34de-567f-8901-23456789abcd,
-    "title": "Witch Hunter Robin",
-    "image_url": "https://cdn.myanimelist.net/images/anime/10/19969.jpg"
+  "genres": [
+      {
+          "id": 1,
+          "name": "Slice of Life",
+          "description": "Everyday life stories with a calming pace.",
+          "jikan_genre_ids": [
+              36
+          ]
+      },
+  ...
+  ]
 }
 ```
 
-**POST :id/watch-history**
+#### **GET api/moods/:id/genres/:id**
 
-- add anime to watch history
-  - list where users already watched the anime
+- Gets one genre based on mood
+- Will return 404 if mood doesn't exist
+- Will return 404 if genre doesn't exist
+- Will return 500 for error retrieving genre
+- If successfull, returns a 200 status code
 
-example request: `POST /1/watch-history`
-
-- response 400 if unsuccessful
-- response 201 if successful
+**Response Body Example**
 
 ```
 {
-    "anime_id": b7c9d2e4-1f34-4a67-9b80-2c5d6e7f8a91,
-    "title": "Jing: King of Bandits - Seventh Heaven",
-    "image_url": "https://cdn.myanimelist.net/images/anime/1325/94741.jpg"
+  "genres": [
+      {
+          "id": 1,
+          "name": "Slice of Life",
+          "description": "Everyday life stories with a calming pace.",
+          "jikan_genre_ids": [
+              36
+          ]
+      },
+  ...
+  ]
+}
+```
+
+#### **GET api/recommendations/anime-mood/:genreIds**
+
+- Gets animes based on selected genre(s)
+  - Can have multiple genre ids separated by a comma
+- Will return 404 if genre doesn't exist
+- Will return 500 for error retrieving animes
+- If successfull, returns a 200 status code
+
+**Sample Call:** http://localhost:5050/api/recommendations/mood/22,74
+
+**Response Body Example**
+
+```
+[
+    {
+        "mal_id": 42361,
+        "image": "https://cdn.myanimelist.net/images/anime/1900/110097.jpg",
+        "rating": "PG-13",
+        "title_english": "Don't Toy with Me, Miss Nagatoro",
+        "year": 2021
+    },
+    ...
+]
+```
+
+#### **GET api/recommendations/tv**
+
+- Gets animes based on tv series or movies
+- A query is required.
+- Will return 400 if there's no query parameters
+- Will return 500 for error retrieving animes
+- If successfull, returns a 200 status code
+
+**Sample Call:** http://localhost:5050/api/recommendations/tv?tvShow=The%20Matrix
+
+**Response Body Example**
+
+```
+[
+      {
+        "mal_id": 790,
+        "image": "https://cdn.myanimelist.net/images/anime/1183/136187.jpg",
+        "rating": "17+",
+        "title_english": "Ergo Proxy",
+        "year": 2006,
+        "similarity_reason": "This is recommended because it deals with existential questions, a dystopian future, artificial intelligence, and questioning reality, sharing the dark and philosophical atmosphere of 'The Matrix'."
+    },
+    ...
+]
+```
+
+#### **GET api/recommendations/mal/:username**
+
+- Gets animes based on user's MAL favorite list or watch list
+- A query is required.
+- Will return 404 if MAL username doesn't exist or if there are no animes in their favorite or watch list.
+- Will return 500 for error retrieving animes
+- If successfull, returns a 200 status code
+
+**Response Body Example**
+
+```
+[
+    {
+        "mal_id": 35968,
+        "image": "https://cdn.myanimelist.net/images/anime/1864/93518.jpg",
+        "rating": "PG-13",
+        "title_english": "Wotakoi: Love is Hard for Otaku",
+        "year": 2018,
+        "similarity_reason": "Shares the romance and workplace setting aspects of *Kaichou wa Maid-sama!* and *Horimiya*, with a focus on relatable adult characters."
+    },
+    ...
+]
+```
+
+#### **GET api/recommendations/clear-cache**
+
+- Clear cached data
+
+**Response Body Example**
+
+```
+{
+    "message": "✅ Cache cleared successfully."
+}
+```
+
+#### **GET api/anime/seasons/hottest**
+
+- Gets seasons' hottest animes
+- Will return 500 for error retrieving animes
+- If successfull, returns a 200 status code
+
+**Response Body Example**
+
+```
+[
+    {
+        "mal_id": 58567,
+        "image": "https://cdn.myanimelist.net/images/anime/1448/147351l.jpg",
+        "rating": "17+",
+        "title_english": "Solo Leveling Season 2: Arise from the Shadow",
+        "year": 2025
+    },
+    ...
+]
+```
+
+#### **GET api/recommendations/anime/:animeId**
+
+- Gets information of one anime
+- Will return 404 if anime with animeId is not found.
+- Will return 500 for error retrieving the anime
+- If successfull, returns a 200 status code
+
+**Response Body Example**
+
+```
+{
+    "mal_id": 490,
+    "image": "https://cdn.myanimelist.net/images/anime/1581/138842.jpg",
+    "rating": "PG-13 - Teens 13 or older",
+    "title_english": "Pani Poni Dash!",
+    "title_japanese": "ぱにぽにだっしゅ！",
+    "type": "TV",
+    "episodes": 26,
+    "duration": "24 min",
+    "favorites": 459,
+    "synopsis": "The girls of Momotsuki Academy's Class 1-C are starting their tenth-grade year with a brand-new instructor. The good news? The teacher is an MIT grad. The bad news? She's only 11 years old! So, while Becky Miyamoto may be an intellectual titan, this child prodigy is painfully ill-equipped to deal with the group of temperamental teens—and idiotic aliens—that await her instructions!\n\n(Source: Funimation)",
+    "genres": [
+        {
+            "mal_id": 4,
+            "type": "anime",
+            "name": "Comedy",
+            "url": "https://myanimelist.net/anime/genre/4/Comedy"
+        }
+    ],
+    "themes": [
+        {
+            "mal_id": 57,
+            "type": "anime",
+            "name": "Gag Humor",
+            "url": "https://myanimelist.net/anime/genre/57/Gag_Humor"
+        },
+        {
+            "mal_id": 20,
+            "type": "anime",
+            "name": "Parody",
+            "url": "https://myanimelist.net/anime/genre/20/Parody"
+        },
+        {
+            "mal_id": 23,
+            "type": "anime",
+            "name": "School",
+            "url": "https://myanimelist.net/anime/genre/23/School"
+        }
+    ],
+    "status": "Completed",
+    "studio": "Shaft",
+    "year": 2005,
+    "aired": "Jul 4, 2005 to Dec 26, 2005",
+    "youtube_id": "onlEbMVWRF0"
 }
 ```
 
@@ -157,8 +347,8 @@ example request: `POST /1/watch-history`
 
 ### Week 1
 
-- Setup backend infrastructure (Node, Express, MySQL)
-- Research and intergrate APIs
+- Setup backend infrastructure (Node, Express)
+- Research and integrate APIs
 - Implement core API endpoints
 - Implement the basic UI structures
   - Home Page
@@ -168,12 +358,12 @@ example request: `POST /1/watch-history`
 ### Week 2
 
 - Anime Details Page
-- User Profile page
-- Implement AI powered reecommentation using Gemini API
+- Implement AI powered recommendation using Gemini API
 - Final testing and bug fixes
 
 ## Future Implementation
 
 - Manga Recommendations
   - extend the app to suggest mangas
-- JWT login
+- Experiment with AniList API for more generous rate limits
+- Use Official MyAnimeList API so users can bookmark animes to their watch list directly from Anime Matchmaker
