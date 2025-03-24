@@ -23,7 +23,7 @@ function MALAnimeRecsPage() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${backendUrl}/api/recommendations/mal?malUsername=${username}`
+        `${backendUrl}/api/recommendations/mal/${username}`
       );
       setAnimes(response.data);
       setError(null);
