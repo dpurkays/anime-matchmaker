@@ -40,10 +40,6 @@
     }
     &__image { 
        object-fit: cover;
-
-       @include tablet {
-            
-       }
     }
 }
 
@@ -84,6 +80,15 @@
     gap: $spacing-mobile;
     &__button {
         @include button-style;
+
+        &--disabled {
+            opacity: 0.6;
+            cursor: not-allowed; 
+            &:hover {
+                background-color: $primary-accent-color;
+                color: $primary-text;
+            }  
+        }
     }
 }
 

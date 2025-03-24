@@ -65,7 +65,9 @@ function AnimeDetailsPage() {
                   >
                     Watch Trailer
                   </Link>
-                  <p className="anime-buttons__button">Bookmark</p>
+                  <p className="anime-buttons__button anime-buttons__button--disabled">
+                    Bookmark
+                  </p>
                 </div>
               </div>
             </header>
@@ -94,7 +96,7 @@ function AnimeDetailsPage() {
                 </p>
                 <p className="anime-details__text">
                   <b>Aired: </b>
-                  {anime.year || anime.aired}
+                  {anime.aired}
                 </p>
                 <p className="anime-details__text">
                   <b>Studio: </b>
