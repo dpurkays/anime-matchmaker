@@ -40,7 +40,7 @@ function MALAnimeRecsPage() {
           setAnimes(null);
         }
       }
-      console.error("Error fetching anime recommendations: ", error);
+      console.error(error);
     }
     setLoading(false);
   };
@@ -51,7 +51,7 @@ function MALAnimeRecsPage() {
     } else {
       navigate("/seasons/hottest");
     }
-  }, []);
+  }, [username]);
 
   return (
     <main className="mal-recs">
