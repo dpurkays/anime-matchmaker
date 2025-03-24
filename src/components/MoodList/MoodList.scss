@@ -1,0 +1,78 @@
+
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.mood-grid {
+    display: grid;
+    gap: $spacing-mobile;
+
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    @include desktop {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.mood-card {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-mobile;
+    padding-top: $spacing-mobile;
+    align-self: flex-start;
+    @include card-style;
+
+    @include tablet {}
+
+    &__context {
+        padding: $spacing-mobile;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $spacing-mobile-half;
+        padding: $spacing-mobile-half;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $spacing-mobile;
+    }
+
+    &__emoji {
+        font-size: 2rem;
+    }
+
+    &__name {
+        font-weight: $medium;
+        color: $secondary-accent-color;
+        @include h3-style;
+    }
+
+    &__description {
+        text-align: center;
+    }
+}
+
+.genre-section {
+    padding: $spacing-mobile;
+    @include divider-line;
+
+    &__title {
+        @include h3-style;
+        &{
+            color: $primary-accent-color;
+            text-transform: uppercase;
+        }
+    }
+
+}

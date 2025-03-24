@@ -1,0 +1,23 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.hottest {
+    &__wrapper {
+     @include main-wrapper-layout;
+    }
+
+    &__section {
+        @include divider-line;
+        @include section-layout;         
+    }
+}
+
+.hottest-results {
+    padding-top: 0;
+    @include section-layout;
+
+    &__title {
+        @include h3-style;
+    }
+}

@@ -1,0 +1,65 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+.mal-recs {
+    &__wrapper {
+       @include main-wrapper-layout;
+    }
+
+    &__section {
+        @include section-layout;
+
+        &:first-of-type {
+            @include divider-line;
+        }
+    }
+
+    &__actions {
+        align-items: center;
+        @include section-layout;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &__text {
+        @include tablet {
+        text-align: center;
+        }
+    }
+    &__button {
+        width: 100%;
+        @include button-style;
+
+        &--secondary {
+            background-color: transparent;
+            color: $primary-accent-color;
+            border: 0.0063rem solid $cta-color;
+
+            &:hover {
+                background-color: $cta-color;
+                color: $primary-text;
+            }
+        }
+
+        @include tablet {
+            width: inherit;
+        }
+    }
+}
+
+.personal-recs {
+    @include section-layout;
+    
+    &{
+        padding-top: 0;
+    }
+    
+    &__title {
+        @include h3-style;
+    }
+}

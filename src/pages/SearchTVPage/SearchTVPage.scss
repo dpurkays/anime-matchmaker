@@ -1,0 +1,54 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.search-tv {
+    &__wrapper {
+       @include main-wrapper-layout;
+    }
+
+    &__section {
+        @include divider-line;
+        @include section-layout;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-mobile;
+
+        @include tablet {
+            gap: $spacing-tablet;
+            width: 80%;
+        }
+    }
+
+    &__description {
+        color: $muted-text-color;
+        align-self: center;
+        font-size: 0.75rem;
+        line-height: 0.875rem;
+
+        @include tablet {
+            font-size: 0.875rem;
+            line-height: 1rem;
+        }
+    }
+}
+
+.search-results{
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-mobile;
+    @include page-layout;
+
+    &__title {
+        @include h3-style;
+    }
+}

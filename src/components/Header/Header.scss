@@ -1,3 +1,21 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
+
+.site-header {
+    display: flex;
+    flex-direction: column;
+    @include page-layout;
+    
+    @include desktop {
+        padding: $spacing-tablet calc($spacing-desktop + $spacing-tablet);
+    }
+    
+    &__link {
+        text-decoration: none;
+    }
+    &__title{
+        color: $primary-accent-color;
+        @include h2-style;
+    }
+}

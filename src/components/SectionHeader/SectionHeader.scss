@@ -1,0 +1,35 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+        color: $primary-accent-color;
+        @include h2-style;
+    }
+
+    &__back-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: $spacing-mobile-quarter;
+        cursor: pointer;
+    }
+
+    &__back-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: $primary-accent-color;
+    }
+
+    &__back-text {
+        display: none;
+        
+        @include tablet {
+            display: inline;
+        }
+    }
+}
