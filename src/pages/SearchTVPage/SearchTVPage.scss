@@ -32,13 +32,7 @@
     &__description {
         color: $muted-text-color;
         align-self: center;
-        font-size: 0.75rem;
-        line-height: 0.875rem;
-
-        @include tablet {
-            font-size: 0.875rem;
-            line-height: 1rem;
-        }
+        @include small-body-style;
     }
 }
 
