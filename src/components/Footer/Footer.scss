@@ -3,21 +3,88 @@
 @use "../../styles/partials/fonts" as *;
 
 .site-footer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding: $spacing-mobile;
-    
-    @include tablet {
-        padding-top: 20rem;
-    }
+    @include page-layout;
+    &__wrapper {
+        font-size: 10px;
+        @include main-wrapper-layout;
+        &{
 
+            gap: $spacing-mobile-half;
+        }
+
+        @include tablet {
+            padding-top: 20rem;
+            font-size: 12px;
+        }
+    }
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-mobile-half;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__header {
+        display: flex;
+        flex-direction: column;
+    }
     &__icon {
-        height: 2rem;
+        width: 16px;
+        height: 16px;
         fill: $primary-accent-color;
 
         &:hover{
             fill: $secondary-accent-color;
+        }
+
+        path {
+            fill: inherit;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+        &--large {
+            width: 48px;
+            height: 48px;
+            display: none;
+
+            @include tablet{
+                display: block;
+                margin-right: $spacing-mobile-half;
+                margin-bottom: - $spacing-mobile-half;
+                transform: scale(1.5);
+            }
+        }
+    }
+    &__text{
+        color: $muted-text-color;
+    }
+    &__tech {
+        display: flex;
+        flex-direction: row;
+        gap: $spacing-mobile;
+
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0;
+        }
+    }
+    &__link {
+        color: $primary-text;
+        font-weight: $medium;
+    }
+    &__footer {
+        color: $muted-text-color;
+        
+        @include tablet {
+            align-self: center;
         }
     }
 }

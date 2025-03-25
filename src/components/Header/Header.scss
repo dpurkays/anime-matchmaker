@@ -11,11 +11,5 @@
         padding: $spacing-tablet calc($spacing-desktop + $spacing-tablet);
     }
     
-    &__link {
-        text-decoration: none;
-    }
-    &__title{
-        color: $primary-accent-color;
-        @include h2-style;
-    }
+    
 }
