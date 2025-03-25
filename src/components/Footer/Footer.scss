@@ -5,7 +5,8 @@
 .site-footer {
     @include page-layout;
     &__wrapper {
-        font-size: 10px;
+        font-size: 0.6875rem;
+        line-height: 0.8125rem;
         @include main-wrapper-layout;
         &{
 
@@ -14,7 +15,8 @@
 
         @include tablet {
             padding-top: 20rem;
-            font-size: 12px;
+            font-size: 0.8125rem;
+            line-height: 0.9375rem;
         }
     }
     &__main {

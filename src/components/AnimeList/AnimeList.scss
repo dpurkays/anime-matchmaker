@@ -53,14 +53,11 @@
         left: 0.5rem;
         background-color: rgba($secondary-accent-color, 0.9);
         color: $text-color-light-bg;
-        font-size: 0.75rem;
         font-weight: $bold;
         padding: $spacing-mobile-quarter 0.375rem;
         border-radius: 0.375rem;
 
-        @include tablet {
-            font-size: 0.875rem;
-        }
+        @include small-body-style;
     }
 
     &__text {

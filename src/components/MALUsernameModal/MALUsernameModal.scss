@@ -100,11 +100,7 @@
 
         &::placeholder {
             color: $muted-text-color;
-            font-size: 0.75rem;
-    
-            @include tablet {
-                font-size: 0.875rem;
-            }
+            @include small-body-style;
         }
 
         &:active,

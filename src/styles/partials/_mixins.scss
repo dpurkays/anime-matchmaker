@@ -50,6 +50,17 @@
     }
 }
 
+@mixin small-body-style {
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1rem;
+    }
+
+}
+
 @mixin page-layout {
     padding: $spacing-mobile;
 
