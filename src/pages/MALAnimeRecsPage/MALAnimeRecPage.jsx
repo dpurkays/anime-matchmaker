@@ -48,8 +48,6 @@ function MALAnimeRecsPage() {
   useEffect(() => {
     if (username) {
       fetchAnimes(username);
-    } else {
-      navigate("/seasons/hottest");
     }
   }, [username]);
 
@@ -94,7 +92,7 @@ function MALAnimeRecsPage() {
                 Explore by show
               </Link>
               <Link
-                to="seasons/hottest"
+                to="/seasons/hottest"
                 className="mal-recs__button mal-recs__button--secondary"
               >
                 Season's Hottest
