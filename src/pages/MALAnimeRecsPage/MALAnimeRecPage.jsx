@@ -71,7 +71,7 @@ function MALAnimeRecsPage() {
           </section>
         )}
 
-        {!loading && username && !animes && error && (
+        {!loading && username && !animes && animes.length === 0 && error && (
           <section className="mal-recs__section">
             <p className="mal-recs__text">{error}</p>
             <div className="mal-recs__actions">
