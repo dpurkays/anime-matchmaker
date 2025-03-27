@@ -46,7 +46,7 @@ function HottestPage() {
             <AnimeList animes={animes} />
           </section>
         )}
-        {!loading && !animes && (
+        {!loading && (!animes || animes.length === 0) && (
           <p className="hottest__no-results">
             No results found. Try again later.
           </p>

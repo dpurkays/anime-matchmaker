@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import MALUsernameModal from "../../components/MALUsernameModal/MALUsernameModal";
 
@@ -28,27 +28,21 @@ function HomePage() {
             How do you want to find your anime match?
           </h2>
           <div className="selection__button-container">
-            <div
-              className="selection__button"
-              onClick={() => navigate("/moods")}
-            >
+            <Link to="/moods" className="selection__button">
               Select by mood
-            </div>
-            <div className="selection__button" onClick={() => navigate("/tv")}>
+            </Link>
+            <Link to="/tv" className="selection__button">
               By TV series or Movie
-            </div>
+            </Link>
             <div
               className="selection__button"
               onClick={() => setIsModalOpen(true)}
             >
               Based on watch history
             </div>
-            <div
-              className="selection__button"
-              onClick={() => navigate("/seasons/hottest")}
-            >
+            <Link to="/seasons/hottest" className="selection__button">
               Season's Hottest
-            </div>
+            </Link>
           </div>
         </section>
       </div>

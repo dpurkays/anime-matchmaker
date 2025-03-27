@@ -71,7 +71,7 @@ function SearchTVPage() {
           </section>
         )}
 
-        {query && !loading && !animes && animes.length === 0 && (
+        {query && !loading && (!animes || animes.length === 0) && (
           <p className="search-results__no-results">No results found.</p>
         )}
       </div>

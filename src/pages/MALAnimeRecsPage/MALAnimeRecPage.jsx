@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import AnimeList from "../../components/AnimeList/AnimeList";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
@@ -71,7 +71,7 @@ function MALAnimeRecsPage() {
           </section>
         )}
 
-        {!loading && username && !animes && animes.length === 0 && error && (
+        {!loading && username && (!animes || animes.length === 0) && error && (
           <section className="mal-recs__section">
             <p className="mal-recs__text">{error}</p>
             <div className="mal-recs__actions">
@@ -81,24 +81,24 @@ function MALAnimeRecsPage() {
               >
                 Try another username
               </div>
-              <div
-                onClick={() => navigate("/moods")}
+              <Link
+                to="/moods"
                 className="mal-recs__button mal-recs__button--secondary"
               >
                 Explore by mood
-              </div>
-              <div
-                onClick={() => navigate("/tv")}
+              </Link>
+              <Link
+                to="/tv"
                 className="mal-recs__button mal-recs__button--secondary"
               >
                 Explore by show
-              </div>
-              <div
+              </Link>
+              <Link
+                to="seasons/hottest"
                 className="mal-recs__button mal-recs__button--secondary"
-                onClick={() => navigate("/seasons/hottest")}
               >
                 Season's Hottest
-              </div>
+              </Link>
             </div>
           </section>
         )}
