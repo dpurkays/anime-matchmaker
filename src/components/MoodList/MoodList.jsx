@@ -34,7 +34,6 @@ function MoodList() {
 
   const handleMoodClick = (mood) => {
     if (parseInt(selectedMood) === mood.id) {
-      console.log(parseInt(selectedMood));
       setSelectedMood(null);
       searchParams.delete("mood");
       setSearchParams(searchParams);
