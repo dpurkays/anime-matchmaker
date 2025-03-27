@@ -34,7 +34,8 @@ function GenreList({ selectedMood }) {
     fetchGenres();
   }, [selectedMood]);
 
-  const handleGenreClick = (genreId) => {
+  const handleGenreClick = (e, genreId) => {
+    e.stopPropagation();
     setSearchParams({ mood: selectedMood, genre: genreId.toString() });
   };
 
@@ -44,7 +45,7 @@ function GenreList({ selectedMood }) {
         <li
           key={genre.id}
           className="genre-card"
-          onClick={() => handleGenreClick(genre.id)}
+          onClick={(event) => handleGenreClick(event, genre.id)}
         >
           <h4 className="genre-card__name">{genre.name}</h4>
           <p className="genre-card__description">{genre.description}</p>
