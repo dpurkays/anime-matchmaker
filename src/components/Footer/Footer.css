@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Bungee";
+  src: url("/src/assets/fonts/Bungee-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+.site-footer {
+  padding: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .site-footer {
+    padding: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .site-footer {
+    padding: 1.5rem 3rem;
+  }
+}
+.site-footer__wrapper {
+  font-size: 0.6875rem;
+  line-height: 0.8125rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+.site-footer__wrapper {
+  gap: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .site-footer__wrapper {
+    padding-top: 20rem;
+    font-size: 0.8125rem;
+    line-height: 0.9375rem;
+  }
+}
+.site-footer__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .site-footer__main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.site-footer__header {
+  display: flex;
+  flex-direction: column;
+}
+.site-footer__icon {
+  width: 16px;
+  height: 16px;
+  fill: #FF477E;
+}
+.site-footer__icon:hover {
+  fill: #FFD166;
+}
+.site-footer__icon path {
+  fill: inherit;
+}
+@media screen and (min-width: 768px) {
+  .site-footer__icon {
+    display: none;
+  }
+}
+.site-footer__icon--large {
+  width: 48px;
+  height: 48px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .site-footer__icon--large {
+    display: block;
+    margin-right: 0.5rem;
+    margin-bottom: -0.5rem;
+    transform: scale(1.5);
+  }
+}
+.site-footer__text {
+  color: #C4C4C4;
+}
+.site-footer__tech {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .site-footer__tech {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+}
+.site-footer__link {
+  color: #F5F5F5;
+  font-weight: 500;
+}
+.site-footer__footer {
+  color: #C4C4C4;
+}
+@media screen and (min-width: 768px) {
+  .site-footer__footer {
+    align-self: center;
+  }
+}/*# sourceMappingURL=Footer.css.map */

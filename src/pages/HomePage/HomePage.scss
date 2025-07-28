@@ -3,40 +3,42 @@
 @use "../../styles/partials/fonts" as *;
 
 .home {
-    &__wrapper {
-        @include main-wrapper-layout;
+  &__wrapper {
+    @include main-wrapper-layout;
+    & {
+      padding: 0;
     }
+  }
 }
 
 .selection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-mobile;
+  @include page-layout;
+
+  @include tablet {
+    align-items: center;
+    gap: $spacing-tablet;
+  }
+
+  &__title {
+    @include h2-style;
+  }
+
+  &__button-container {
     display: flex;
     flex-direction: column;
     gap: $spacing-mobile;
-    @include page-layout;
+    width: 90%;
 
     @include tablet {
-        align-items: center;
-        gap: $spacing-tablet;
+      flex-direction: row;
+      justify-content: center;
     }
+  }
 
-    &__title {
-        @include h2-style;
-    }
-
-    &__button-container {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-mobile;
-        width: 90%;
-
-        @include tablet {
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
-
-    &__button {
-        @include button-style;
-    }
-   
+  &__button {
+    @include button-style;
+  }
 }

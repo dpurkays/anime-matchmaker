@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Bungee";
+  src: url("/src/assets/fonts/Bungee-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  font-weight: 400;
+  color: #F5F5F5;
+  background-color: #1A1A1A;
+  height: 100%;
+}
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}/*# sourceMappingURL=App.css.map */

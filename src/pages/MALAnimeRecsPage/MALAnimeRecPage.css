@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Bungee";
+  src: url("/src/assets/fonts/Bungee-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/src/assets/fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+.mal-recs__wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+.mal-recs__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .mal-recs__section {
+    padding: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .mal-recs__section {
+    padding: 1.5rem 3rem;
+  }
+}
+.mal-recs__section:first-of-type {
+  border-top: 0.15rem solid #292929;
+}
+.mal-recs__actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .mal-recs__actions {
+    padding: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .mal-recs__actions {
+    padding: 1.5rem 3rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mal-recs__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mal-recs__text {
+    text-align: center;
+  }
+}
+.mal-recs__button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #FF477E;
+  color: #F5F5F5;
+  font-weight: 700;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+}
+.mal-recs__button:hover {
+  background-color: #FFD166;
+  color: #1A1A1A;
+}
+.mal-recs__button--secondary {
+  background-color: transparent;
+  color: #FF477E;
+  border: 0.0063rem solid #FF477E;
+}
+.mal-recs__button--secondary:hover {
+  background-color: #FF477E;
+  color: #F5F5F5;
+}
+@media screen and (min-width: 768px) {
+  .mal-recs__button {
+    width: inherit;
+  }
+}
+
+.personal-recs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .personal-recs {
+    padding: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .personal-recs {
+    padding: 1.5rem 3rem;
+  }
+}
+.personal-recs {
+  padding-top: 0;
+}
+.personal-recs__title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: #FFD166;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .personal-recs__title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}/*# sourceMappingURL=MALAnimeRecPage.css.map */

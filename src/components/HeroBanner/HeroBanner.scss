@@ -3,7 +3,10 @@
 @use "../../styles/partials/fonts" as *;
 
 .hero {
+  background-color: black;
+  width: 100%;
   @include section-layout;
+
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
@@ -12,13 +15,13 @@
 
   &__text-section {
     display: flex;
-    // align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: $spacing-mobile;
 
     @include tablet {
       gap: $spacing-tablet;
+      padding: 6rem 0;
     }
   }
 
