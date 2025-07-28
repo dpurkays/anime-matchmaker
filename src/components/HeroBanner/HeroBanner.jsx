@@ -5,7 +5,6 @@ import "./HeroBanner.scss";
 function HeroBanner({ showButton = false }) {
   return (
     <div className="hero">
-      <HeroCarousel />
       <section className="hero__text-section">
         <h1 className="hero__title">Find your anime match</h1>
         <div className="hero__content">
@@ -28,6 +27,7 @@ function HeroBanner({ showButton = false }) {
           )}
         </div>
       </section>
+      <HeroCarousel />
     </div>
   );
 }

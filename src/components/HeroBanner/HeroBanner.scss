@@ -3,52 +3,53 @@
 @use "../../styles/partials/fonts" as *;
 
 .hero {
-    @include section-layout;
+  @include section-layout;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: $spacing-tablet;
+  }
+
+  &__text-section {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: $spacing-mobile;
 
     @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: $spacing-tablet;
+      gap: $spacing-tablet;
+    }
+  }
+
+  &__title {
+    color: $primary-accent-color;
+    text-shadow: 0.1875rem 0.1875rem 0.3125rem rgba($primary-accent-color, 0.6);
+    @include h1-style;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: $spacing-mobile;
+
+    @include tablet {
+      width: 80%;
+      gap: $spacing-tablet;
     }
 
-    &__text-section {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-mobile;
-
-        @include tablet {
-            gap: $spacing-tablet;
-        }
+    @include desktop {
+      width: 60%;
     }
+  }
 
-    &__title {
-        color: $primary-accent-color;
-        text-shadow: 0.1875rem 0.1875rem 0.3125rem rgba($primary-accent-color, 0.6);
-        @include h1-style;
+  &__button {
+    align-self: flex-end;
+    @include button-style;
+
+    @include tablet {
+      align-self: flex-start;
     }
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        gap: $spacing-mobile;
-        
-        @include tablet{
-            width: 80%;
-            gap: $spacing-tablet;
-        }
-
-        @include desktop{
-            width: 60%;
-        }
-    }
-
-    &__button {
-        align-self: flex-end;
-        @include button-style;
-
-        @include tablet {
-            align-self: flex-start;
-        }
-    }
+  }
 }
