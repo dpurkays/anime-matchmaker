@@ -2,144 +2,141 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-
 .anime-details-page {
-   @include page-layout;
+  @include page-layout;
 
-   &__wrapper {
+  &__wrapper {
     @include main-wrapper-layout;
 
     @include card-style;
-    &{
+    & {
+      box-shadow: 0 0.625rem 0.9375rem rgba($primary-accent-color, 0.3);
+      cursor: auto;
+      padding: $spacing-mobile;
+
+      &:hover {
+        transform: none;
         box-shadow: 0 0.625rem 0.9375rem rgba($primary-accent-color, 0.3);
-        cursor: auto;
-        
-        &:hover {
-            transform: none;
-            box-shadow: 0 0.625rem 0.9375rem rgba($primary-accent-color, 0.3);
-        }
+      }
     }
 
     @include tablet {
-        padding: $spacing-tablet;
+      padding: $spacing-tablet;
     }
 
     @include desktop {
-        width: calc(100% - $spacing-desktop);
+      width: calc(100% - $spacing-desktop);
     }
-   }
+  }
 }
 
 .anime-header {
-    @include section-layout;
-    &{
-        padding: $spacing-mobile 0;
-    }
-    @include tablet {
-        flex-direction: row;
-    }
-    &__image { 
-       object-fit: cover;
-    }
+  @include section-layout;
+  & {
+    padding: $spacing-mobile 0;
+  }
+  @include tablet {
+    flex-direction: row;
+  }
+  &__image {
+    object-fit: cover;
+  }
 }
 
 .anime-info {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-mobile-quarter;
-    padding: $spacing-mobile 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-mobile-quarter;
+  padding: $spacing-mobile 0;
+
+  @include tablet {
+    padding-top: 0;
+  }
+
+  &__title {
+    color: $primary-accent-color;
+    padding: $spacing-mobile-quarter 0;
+    @include h2-style;
 
     @include tablet {
-        padding-top: 0;
+      padding-top: 0;
     }
-
-    &__title {
-        color: $primary-accent-color;
-        padding: $spacing-mobile-quarter 0;
-        @include h2-style;
-
-        @include tablet {
-            padding-top: 0;
-        }
-    }
+  }
 }
 
 .anime-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-mobile-half;
-    padding: $spacing-mobile-quarter 0;
-    &__badge {
-        @include badge-style;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-mobile-half;
+  padding: $spacing-mobile-quarter 0;
+  &__badge {
+    @include badge-style;
+  }
 }
 
 .anime-buttons {
-    display: flex;
-    padding: $spacing-mobile 0;
-    gap: $spacing-mobile;
-    &__button {
-        @include button-style;
+  display: flex;
+  padding: $spacing-mobile 0;
+  gap: $spacing-mobile;
+  &__button {
+    @include button-style;
 
-        &--disabled {
-            opacity: 0.6;
-            cursor: not-allowed; 
-            &:hover {
-                background-color: $primary-accent-color;
-                color: $primary-text;
-            }  
-        }
+    &--disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      &:hover {
+        background-color: $primary-accent-color;
+        color: $primary-text;
+      }
     }
+  }
 }
 
 .anime-description {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-mobile;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-mobile;
 
-    &__synopsis-title {
-        @include h3-style;
-        @include tablet {
-            padding-top: $spacing-mobile;
-        }
+  &__synopsis-title {
+    @include h3-style;
+    @include tablet {
+      padding-top: $spacing-mobile;
     }
+  }
 }
 
 .anime-genres {
-    padding: $spacing-mobile 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-mobile-half;
-    &__badge {
-        @include badge-style;
-    }
+  padding: $spacing-mobile 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-mobile-half;
+  &__badge {
+    @include badge-style;
+  }
 }
 
 .anime-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    &__title {
-        padding-bottom: $spacing-mobile;
-        @include h3-style;
-    
-    }
+  &__title {
+    padding-bottom: $spacing-mobile;
+    @include h3-style;
+  }
 
-    &__text-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: $spacing-mobile-half;
-
-    }
+  &__text-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-mobile-half;
+  }
 }
 
 .anime-trailer {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-mobile;
-    padding: $spacing-mobile 0;
-    &__title {
-        @include h3-style;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-mobile;
+  padding: $spacing-mobile 0;
+  &__title {
+    @include h3-style;
+  }
 }
-
