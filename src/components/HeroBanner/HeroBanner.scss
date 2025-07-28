@@ -5,12 +5,24 @@
 .hero {
   background-color: black;
   width: 100%;
-  @include section-layout;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-mobile;
 
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
     gap: $spacing-tablet;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 600px;
+  }
+
+  @include desktop {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   &__text-section {
@@ -18,10 +30,14 @@
     justify-content: center;
     flex-direction: column;
     gap: $spacing-mobile;
+    padding: 2rem 0 2rem $spacing-mobile;
 
     @include tablet {
       gap: $spacing-tablet;
-      padding: 6rem 0;
+      padding: 6rem 0 6rem $spacing-tablet;
+    }
+    @include desktop {
+      padding-left: $spacing-desktop;
     }
   }
 
