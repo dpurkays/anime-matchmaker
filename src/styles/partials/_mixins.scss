@@ -73,11 +73,12 @@
 }
 
 @mixin button-style {
-  padding: $spacing-mobile-half;
+  padding: 0.75rem 1.5rem;
   background-color: $cta-color;
   color: $primary-text;
   font-weight: $bold;
-  border-radius: 0.3125rem;
+  //   border-radius: 0.3125rem;
+  border-radius: 9999px;
   cursor: pointer;
 
   &:hover {

@@ -13,7 +13,7 @@
     }
 
     @include tablet {
-      padding-top: 20rem;
+      padding-top: 6rem;
       font-size: 0.8125rem;
       line-height: 0.9375rem;
     }
@@ -49,23 +49,12 @@
     @include tablet {
       display: none;
     }
-
-    &--large {
-      width: 3rem;
-      height: 3rem;
-      display: none;
-
-      @include tablet {
-        display: block;
-        margin-right: $spacing-mobile-half;
-        margin-bottom: -$spacing-mobile-half;
-        transform: scale(1.5);
-      }
-    }
   }
+
   &__text {
     color: $muted-text-color;
   }
+
   &__tech {
     display: flex;
     flex-direction: row;
@@ -79,7 +68,17 @@
   }
   &__link {
     color: $primary-text;
-    font-weight: $medium;
+    font-weight: $bold;
+
+    &--github {
+      color: $primary-accent-color;
+      font-size: 1rem;
+      display: none;
+
+      @include tablet {
+        display: inline;
+      }
+    }
   }
   &__footer {
     color: $muted-text-color;
