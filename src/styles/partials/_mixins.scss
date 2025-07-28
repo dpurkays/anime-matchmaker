@@ -119,7 +119,7 @@
 @mixin main-wrapper-layout {
   display: flex;
   flex-direction: column;
-  padding: 0 $spacing-mobile;
+  padding: 0;
 }
 
 @mixin section-layout {

@@ -3,13 +3,11 @@
 @use "../../styles/partials/fonts" as *;
 
 .site-header {
-    display: flex;
-    flex-direction: column;
-    @include page-layout;
-    
-    @include desktop {
-        padding: $spacing-tablet calc($spacing-desktop + $spacing-tablet);
-    }
-    
-    
+  display: flex;
+  flex-direction: column;
+  @include page-layout;
+
+  @include desktop {
+    padding: $spacing-tablet calc($spacing-desktop);
+  }
 }
