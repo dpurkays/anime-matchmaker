@@ -3,6 +3,8 @@
 @use "../../styles/partials/fonts" as *;
 
 .home {
+  display: flex;
+  flex-direction: column;
   &__wrapper {
     @include main-wrapper-layout;
   }

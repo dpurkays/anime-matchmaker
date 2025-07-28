@@ -17,8 +17,8 @@ function HomePage() {
 
   return (
     <main className="home">
+      <HeroBanner showButton={true} />
       <div className="home__wrapper">
-        <HeroBanner showButton={true} />
         <section
           id="selection-section"
           ref={selectionRef}

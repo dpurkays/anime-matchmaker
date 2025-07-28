@@ -4,13 +4,14 @@
 
 .hero {
   background-color: black;
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
   height: 31.25rem;
 
   display: flex;
   flex-direction: column;
   gap: $spacing-mobile;
-  overflow: hidden;
 
   @include tablet {
     flex-direction: row;
