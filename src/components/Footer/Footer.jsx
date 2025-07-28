@@ -7,11 +7,11 @@ function Footer() {
         <div className="site-footer__main">
           <header className="site-footer__header">
             <SiteLogo />
-            <div className="site-footer__message-container">
-              <p className="site-footer__message">
-                May your watchlist grow ever longer!
-              </p>
-            </div>
+            {/* <div className="site-footer__message-container"> */}
+            <p className="site-footer__message">
+              May your watchlist grow ever longer!
+            </p>
+            {/* </div> */}
           </header>
           <div className="site-footer__tech">
             <div className="site-footer__github">

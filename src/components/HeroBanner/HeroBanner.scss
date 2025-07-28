@@ -31,7 +31,7 @@
     justify-content: center;
     flex-direction: column;
     gap: $spacing-mobile;
-    padding: 2rem 0 2rem $spacing-mobile;
+    padding: 2rem $spacing-mobile;
 
     @include tablet {
       gap: $spacing-tablet;
