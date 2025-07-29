@@ -19,10 +19,11 @@
     gap: $spacing-tablet;
     padding-top: 0;
     padding-bottom: 0;
-    height: 37.5rem;
+    height: 38rem;
   }
 
   @include desktop {
+    gap: $spacing-desktop;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -35,11 +36,13 @@
     padding: 2rem $spacing-mobile;
 
     @include tablet {
+      width: 50%;
       gap: $spacing-tablet;
-      padding: 6rem 0 6rem $spacing-tablet;
+      padding: $spacing-tablet;
     }
     @include desktop {
-      padding-left: $spacing-desktop;
+      width: 40%;
+      padding: $spacing-desktop;
     }
   }
 

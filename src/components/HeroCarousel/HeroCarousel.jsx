@@ -87,16 +87,25 @@ function HeroCarousel() {
 
   return (
     <div className="carousel">
-      <img
-        className={`carousel__image ${
-          fade ? "carousel__image--fade-in" : "carousel__image--fade-out"
-        }`}
-        src={carouselImages[currentIndex]?.image}
-        alt="anime banner"
-        onClick={() =>
-          navigate(`/anime/${carouselImages[currentIndex].mal_id}`)
-        }
-      />
+      <div className="carousel__image-wrapper">
+        <img
+          className={`carousel__image carousel__image--bg ${
+            fade ? "carousel__image--fade-in" : "carousel__image--fade-out"
+          }`}
+          src={carouselImages[currentIndex]?.image}
+          alt="anime background blur"
+        />
+        <img
+          className={`carousel__image carousel__image--main ${
+            fade ? "carousel__image--fade-in" : "carousel__image--fade-out"
+          }`}
+          src={carouselImages[currentIndex]?.image}
+          alt="anime banner"
+          onClick={() =>
+            navigate(`/anime/${carouselImages[currentIndex].mal_id}`)
+          }
+        />
+      </div>
     </div>
   );
 }
