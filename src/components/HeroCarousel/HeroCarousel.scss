@@ -8,6 +8,11 @@
   height: 100%;
   overflow: hidden;
   position: relative;
+  margin-bottom: 2rem;
+
+  @include tablet {
+    margin-bottom: 0;
+  }
 
   &__image-wrapper {
     position: relative;
@@ -32,7 +37,6 @@
     &--main {
       object-fit: contain;
       cursor: pointer;
-      margin: 0 auto;
       z-index: 1;
     }
 
