@@ -19,8 +19,7 @@ const fallbackImages = [
 function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setfade] = useState(true);
-  const [carouselImages, setCarouselImages] = useState([...fallbackImages]);
-
+  const [carouselAnime, setcarouselAnime] = useState([...fallbackImages]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,7 +38,7 @@ function HeroCarousel() {
           .filter(Boolean);
 
         if (animeData.length > 0) {
-          setCarouselImages([...animeData]);
+          setcarouselAnime(animeData);
         }
         return;
       }
@@ -56,11 +55,16 @@ function HeroCarousel() {
             .map((anime) => ({
               mal_id: anime.mal_id,
               image: anime.image,
+              title: anime.title_english,
+              rating: anime.rating,
+              synopsis: anime.synopsis,
+              genres: anime.genres,
+              year: anime.year,
             }))
             .filter(Boolean);
 
           if (animeData.length > 0) {
-            setCarouselImages([...animeData]);
+            setcarouselAnime(animeData);
           }
         }
       } catch (error) {
@@ -77,7 +81,7 @@ function HeroCarousel() {
     const timeout = setTimeout(() => {
       setfade(false);
       setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselAnime.length);
         setfade(true);
       }, slideOutTime);
     }, switchImageTime);
@@ -92,20 +96,33 @@ function HeroCarousel() {
           className={`carousel__image carousel__image--bg ${
             fade ? "carousel__image--fade-in" : "carousel__image--fade-out"
           }`}
-          src={carouselImages[currentIndex]?.image}
-          alt="anime background blur"
+          src={carouselAnime[currentIndex]?.image}
+          alt={carouselAnime[currentIndex]?.title || "anime banner"}
         />
         <img
           className={`carousel__image carousel__image--main ${
             fade ? "carousel__image--fade-in" : "carousel__image--fade-out"
           }`}
-          src={carouselImages[currentIndex]?.image}
-          alt="anime banner"
+          src={carouselAnime[currentIndex]?.image}
+          alt={carouselAnime[currentIndex]?.title || "anime banner"}
           onClick={() =>
-            navigate(`/anime/${carouselImages[currentIndex].mal_id}`)
+            navigate(`/anime/${carouselAnime[currentIndex].mal_id}`)
           }
         />
       </div>
+      {carouselAnime[currentIndex]?.title && (
+        <div className="carousel__overlay">
+          <h2 className="carousel__title">
+            {carouselAnime[currentIndex]?.title}
+          </h2>
+          <p className="carousel__genres">
+            {carouselAnime[currentIndex]?.genres?.slice(0, 2).join(", ")}
+          </p>
+          <p className="carousel__synopsis">
+            {carouselAnime[currentIndex]?.synopsis?.slice(0, 150)}...
+          </p>
+        </div>
+      )}
     </div>
   );
 }

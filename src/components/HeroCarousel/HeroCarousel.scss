@@ -48,4 +48,33 @@
       opacity: 0;
     }
   }
+
+  &__overlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 2;
+    color: white;
+    max-width: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  &__genres {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+  }
+
+  &__synopsis {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
 }
