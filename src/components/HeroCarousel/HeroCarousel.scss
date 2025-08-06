@@ -36,7 +36,6 @@
 
     &--main {
       object-fit: contain;
-      cursor: pointer;
       z-index: 1;
     }
 
@@ -57,11 +56,10 @@
     left: 0;
     z-index: 2;
     color: white;
-    max-width: 60%;
+    width: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
     padding: 1rem;
     gap: 1rem;
-    // height: 15rem;
   }
 
   &__title {
@@ -75,12 +73,10 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.25rem 0;
+    width: 60%;
   }
 
   &__rating {
-    // position: absolute;
-    // top: 0.5rem;
-    // left: 0.5rem;
     background-color: rgba($secondary-accent-color, 0.9);
     color: $text-color-light-bg;
     font-weight: $bold;

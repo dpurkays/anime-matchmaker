@@ -105,9 +105,6 @@ function HeroCarousel() {
           }`}
           src={carouselAnime[currentIndex]?.image}
           alt={carouselAnime[currentIndex]?.title || "anime banner"}
-          onClick={() =>
-            navigate(`/anime/${carouselAnime[currentIndex].mal_id}`)
-          }
         />
       </div>
       {carouselAnime[currentIndex]?.title && (
@@ -129,11 +126,20 @@ function HeroCarousel() {
                 ))}
             </div>
           </div>
-          <p className="carousel__synopsis">
-            {carouselAnime[currentIndex]?.synopsis}
-          </p>
           <div className="carousel__section">
-            <p className="carousel__btn">Detail</p>
+            <p className="carousel__synopsis">
+              {carouselAnime[currentIndex]?.synopsis}
+            </p>
+          </div>
+          <div className="carousel__section">
+            <p
+              className="carousel__btn"
+              onClick={() =>
+                navigate(`/anime/${carouselAnime[currentIndex].mal_id}`)
+              }
+            >
+              Detail
+            </p>
           </div>
         </div>
       )}
