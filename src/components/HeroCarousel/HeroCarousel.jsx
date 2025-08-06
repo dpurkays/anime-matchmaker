@@ -142,16 +142,6 @@ function HeroCarousel() {
               Detail
             </p>
           </div>
-          {/* <div className="carousel__section">
-            <p
-              className="carousel__btn"
-              onClick={() =>
-                navigate(`/anime/${carouselAnime[currentIndex].mal_id}`)
-              }
-            >
-              Detail
-            </p>
-          </div> */}
         </div>
       )}
     </div>
