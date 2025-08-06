@@ -115,12 +115,26 @@ function HeroCarousel() {
           <h2 className="carousel__title">
             {carouselAnime[currentIndex]?.title}
           </h2>
-          <p className="carousel__genres">
-            {carouselAnime[currentIndex]?.genres?.slice(0, 2).join(", ")}
-          </p>
+          <div className="carousel__section">
+            <p className="carousel__rating">
+              {carouselAnime[currentIndex]?.rating}
+            </p>
+            <div className="carousel__genres">
+              {carouselAnime[currentIndex]?.genres
+                ?.slice(0, 2)
+                .map((genre, i) => (
+                  <span key={i} className="carousel__genre">
+                    {genre}
+                  </span>
+                ))}
+            </div>
+          </div>
           <p className="carousel__synopsis">
-            {carouselAnime[currentIndex]?.synopsis?.slice(0, 150)}...
+            {carouselAnime[currentIndex]?.synopsis}
           </p>
+          <div className="carousel__section">
+            <p className="carousel__btn">Detail</p>
+          </div>
         </div>
       )}
     </div>
