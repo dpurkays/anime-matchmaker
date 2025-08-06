@@ -57,23 +57,46 @@
     z-index: 2;
     color: white;
     width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-    padding: 1rem;
-    gap: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.5rem;
+    backdrop-filter: blur(1px);
+
+    @include tablet {
+      gap: 0.25rem;
+    }
+
+    @include desktop {
+      gap: 1rem;
+      padding: 1rem;
+    }
   }
 
   &__title {
-    font-size: 3rem;
-    line-height: 3.75rem;
     font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    @include desktop {
+      font-size: 3rem;
+      line-height: 3.75rem;
+    }
   }
 
   &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
-    width: 60%;
+    display: none;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.25rem 0;
+      width: 60%;
+    }
   }
 
   &__rating {
@@ -114,8 +137,14 @@
     background-color: $primary-accent-color;
     padding: 0.5rem;
     border-radius: 0.375rem;
+    font-weight: $bold;
     cursor: pointer;
     width: fit-content;
     @include small-body-style;
+
+    &:hover {
+      background-color: $secondary-accent-color;
+      color: $text-color-light-bg;
+    }
   }
 }
