@@ -5,7 +5,7 @@ Check out the application here: https://animematchmaker.netlify.app/
 
 ## 🛑 Project Status & Known Issues
 
-The public Jikan REST API used to fetch anime metadata was permanently discontinued on October 1, 2026. As a result, network requests currently fail. I am actively evaluating alternative providers to restore full application functionality.
+Due to new API, the recommendations based on watch history is not functional at the moment.
 
 ## Overview
 
@@ -74,8 +74,8 @@ Do the following in both folders (anime-matchmaker and anime-matchmaker-server):
 
 - Gemini API - https://ai.google.dev/api?lang=node
   - Gemini API is used to generate anime recommendations based on natural language input such as a user’s favorites/watch-history list, or favorite tv shows/movies.
-- Jikan API - https://docs.api.jikan.moe/
-  - unofficial API for MyAnimeList (MAL)
+- Tenrai API - https://api.tenrai.org/documentation
+  - Unofficial public REST API for the full MyAnimeList
 
 ### Sitemap
 
@@ -105,9 +105,9 @@ Do the following in both folders (anime-matchmaker and anime-matchmaker-server):
     "emoji": "🌴",
     "description": "Calm and peaceful anime that bring a sense of relaxation.",
     "genres": [
-      { "id": 1, "name": "Slice of Life", "description": "Everyday life stories with a calming pace.", "jikan_genre_ids": [36] },
-      { "id": 2, "name": "Romance", "description": "Sweet love stories filled with warmth.", "jikan_genre_ids": [22, 74] },
-      { "id": 3, "name": "Iyashikei", "description": "Soothing, healing anime that bring comfort.", "jikan_genre_ids": [63] }
+      { "id": 1, "name": "Slice of Life", "description": "Everyday life stories with a calming pace.", "anime_genre_ids": [36] },
+      { "id": 2, "name": "Romance", "description": "Sweet love stories filled with warmth.", "anime_genre_ids": [22, 74] },
+      { "id": 3, "name": "Iyashikei", "description": "Soothing, healing anime that bring comfort.", "anime_genre_ids": [63] }
     ]
   },
   ...
@@ -153,7 +153,7 @@ Do the following in both folders (anime-matchmaker and anime-matchmaker-server):
           "id": 1,
           "name": "Slice of Life",
           "description": "Everyday life stories with a calming pace.",
-          "jikan_genre_ids": [
+          "anime_genre_ids": [
               36
           ]
       },
@@ -179,7 +179,7 @@ Do the following in both folders (anime-matchmaker and anime-matchmaker-server):
           "id": 1,
           "name": "Slice of Life",
           "description": "Everyday life stories with a calming pace.",
-          "jikan_genre_ids": [
+          "anime_genre_ids": [
               36
           ]
       },
